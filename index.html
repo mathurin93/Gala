@@ -357,8 +357,8 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md z-50 overflow-x-auto hide-scrollbar">
-        <div class="max-w-5xl mx-auto flex items-center justify-between px-6 h-14 md:h-16 min-w-max md:min-w-0">
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md z-50 relative">
+        <div class="max-w-5xl mx-auto flex items-center justify-between px-6 h-14 md:h-16">
             <div class="serif font-extrabold text-[var(--purple-dark)] text-xl md:hidden tracking-wider mr-6">GALA 2026
             </div>
 
@@ -368,7 +368,7 @@
                 <i id="menuIcon" class="fas fa-bars"></i>
             </button>
 
-            <!-- Links (Scrollable on small screens, spaced on desktop) -->
+            <!-- Links (Spaced on desktop) -->
             <div class="hidden md:flex flex-1 justify-around w-full">
                 <button onclick="showPage('program')" id="btn-program"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest nav-active transition-all whitespace-nowrap">Schedule</button>
@@ -717,6 +717,22 @@
                     <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">MC & Host</p>
                     <p class="text-gray-600 text-sm line-clamp-3">Seasoned emcee with over a decade of experience under
                         his belt, bringing joy and laughter to countless events...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Antonette Whitley-Scott', 'MC & Host', 'antonette')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/antonette.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Antonette Whitley-Scott
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">MC & Host</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">For over 15 years, Antonette Whitley Scott has been
+                        the vibrant host behind countless events — from weddings, parties, and concerts to
+                        conferences...</p>
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
@@ -1321,7 +1337,7 @@ Today, Karen continues to advocate for survivors, mentor youth, and contribute t
 
             leonard: `Leonard Bryan is a survivor and speaker courageously sharing his personal story to bring awareness and support to the mission of Bon Ami Community Services.`,
 
-            antonette: `Antonette Whitley-Scott is the MC hosting the Pre-show and Reception, welcoming guests and setting the stage for an incredible evening.`,
+            antonette: `For over 15 years, Antonette Whitley Scott has been the vibrant host behind countless events — from weddings, parties, and concerts to conferences and celebrations of every kind. A proud graduate of the University of the West Indies with a Master’s in Communication Studies and a Certificate in Events Management, Antonette brings both professionalism and personality to every stage she graces. Known for her pleasant personality, she delights in creating a stress-free and enjoyable atmosphere for everyone she encounters and at every hosting engagement. From start to finish, Antonette not only hosts but also customizes and executes each program with precision and heart, ensuring every event is truly unforgettable.`,
 
             david: `Dr. David Green is a respected leader, educator, and community advocate whose career spans more than two decades of service and impact. With over thirteen years of experience in law enforcement and security administration, he has served with Metro SIS, Toronto Police Services, and the Airport Authority. He also held the role of Tribunal Adjudicator with the Ministry of Health, bringing fairness, integrity, and strong decisionmaking to the position. His nine years as a union representative further strengthened his skills in negotiation, advocacy, and conflict resolution.
 
