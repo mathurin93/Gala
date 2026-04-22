@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Exposing the Cycle of Abuse Gala 2026</title>
+    <meta name="title" content="Exposing the Cycle of Abuse Gala 2026">
+    <meta name="description"
+        content="Bon Ami Community Services Proudly Presents its 3rd Annual Black Tie Gala: Exposing the Cycle of Abuse.">
+    <meta name="theme-color" content="#2d1341">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --purple-dark: #200a2e;
+            --purple-mid: #3b1354;
+            --purple-light: #f5f3f7;
+            --gold-accent: #d4af37;
+            --gold-light: #fdf5d3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--purple-light);
+            color: #1e293b;
+            opacity: 0;
+            transition: opacity 800ms ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gala-theme {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%) !important;
+            position: relative;
+        }
+
+        /* ANIMATIONS */
+        @keyframes drift {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+
+            100% {
+                background-position: 100px 100px, -150px 150px, 200px -200px, -100px -100px;
+            }
+        }
+
+        /* Sparkle Background overlay for the flyer feel */
+        .sparkle-bg {
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 50% 80%, rgba(212, 175, 55, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 20% 10%, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: drift 40s linear infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+                transform: scale(1.03);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        @keyframes modalZoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-enter {
+            animation: modalZoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .gold-text {
+            color: var(--gold-accent);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-active {
+            border-bottom: 3px solid var(--purple-mid);
+            color: var(--purple-mid);
+            font-weight: 700;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 25px rgba(59, 19, 84, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(59, 19, 84, 0.05);
+        }
+
+        .card.interactive:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(59, 19, 84, 0.15);
+            cursor: pointer;
+            border-color: var(--gold-accent);
+        }
+
+        .time-badge {
+            background: var(--gold-light);
+            color: #856404;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            display: inline-block;
+            border: 1px solid #ffeeba;
+        }
+
+        .profile-img-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--purple-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple-mid);
+            flex-shrink: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid var(--gold-accent);
+        }
+
+        .profile-img-placeholder i {
+            font-size: 1.25rem;
+        }
+
+        #welcomeOverlay {
+            background: linear-gradient(rgba(32, 10, 46, 0.95), rgba(59, 19, 84, 0.95));
+            z-index: 100;
+        }
+
+        .page-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #modalHeaderImg {
+            background-size: cover;
+            background-position: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Menu Styles */
+        #mobileMenuOverlay {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #mobileMenuOverlay.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Scroll Animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes subtle-bounce-x {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(4px);
+            }
+        }
+
+        .animate-bounce-x {
+            animation: subtle-bounce-x 2s infinite ease-in-out;
+        }
+
+        /* Responsive Fixes for iPhone SE & Smaller Screens (max 380px) */
+        @media (max-width: 380px) {
+            h1.serif.text-5xl {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+
+            h1.serif.text-4xl {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .card.p-5 {
+                padding: 1rem;
+            }
+
+            .card.p-6 {
+                padding: 1.25rem;
+            }
+
+            header.py-16 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            .time-badge {
+                font-size: 0.65rem;
+                padding: 3px 8px;
+            }
+
+            .profile-img-placeholder {
+                width: 45px;
+                height: 45px;
+            }
+
+            .w-\[60px\] {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            .h-\[60px\] {
+                height: 45px !important;
+            }
+
+            nav .serif {
+                font-size: 1rem;
+                margin-right: 0.5rem;
+            }
+
+            .nav-btn {
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+                font-size: 10px;
+            }
+
+            .text-xl.md\:text-2xl {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+    </style>
+</head>
+
+<body class="pb-10">
+
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay"
+        class="fixed inset-0 flex items-center justify-center p-6 text-center transition-opacity duration-700 sparkle-bg">
+        <div class="max-w-2xl text-white">
+            <p class="uppercase tracking-[0.3em] text-sm md:text-base mb-6 text-gray-300 font-bold">Bon Ami Community
+                Services<br /><span class="text-[10px] font-normal tracking-widest">Proudly Presents its 3rd Annual
+                    Black Tie Gala</span></p>
+            <h1 class="serif text-5xl md:text-7xl font-bold mb-4 gold-text leading-tight">Exposing the <br />Cycle of
+                Abuse</h1>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light italic text-gray-200">For Women & Men: ~ No More
+                Secrets ~</p>
+            <button onclick="enterProgram()"
+                class="bg-white text-[var(--purple-dark)] px-10 py-4 rounded-full font-extrabold text-lg hover:bg-gray-100 transition-colors btn-pulse uppercase tracking-widest border-2 border-[var(--gold-accent)]">
+                Enter Gala
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="gala-theme sparkle-bg text-white py-16 px-6 text-center shadow-2xl relative overflow-hidden">
+        <div class="relative z-10">
+            <h1 class="serif text-4xl md:text-5xl mb-2 font-bold reveal-on-scroll gold-text">Exposing the Cycle of Abuse
+            </h1>
+            <p class="italic text-gray-300 mb-6 reveal-on-scroll text-sm md:text-base">For Women & Men: ~ No More
+                Secrets ~</p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-3 mt-4 reveal-on-scroll"
+                style="transition-delay: 100ms;">
+                <div
+                    class="px-5 py-2 bg-white/10 rounded-full backdrop-blur-md text-sm font-semibold border border-white/20">
+                    <i class="far fa-calendar-alt mr-2 text-[var(--gold-accent)]"></i> April 23, 2026
+                </div>
+                <div
+                    class="px-5 py-2 bg-white/10 rounded-full backdrop-blur-md text-sm font-semibold border border-white/20">
+                    <i class="fas fa-map-marker-alt mr-2 text-[var(--gold-accent)]"></i> Dream Convention Center
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md z-50 overflow-x-auto hide-scrollbar">
+        <div class="max-w-5xl mx-auto flex items-center justify-between px-6 h-14 md:h-16 min-w-max md:min-w-0">
+            <div class="serif font-extrabold text-[var(--purple-dark)] text-xl md:hidden tracking-wider mr-6">GALA 2026
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button onclick="toggleMobileMenu()"
+                class="md:hidden text-white text-lg focus:outline-none h-9 w-9 flex-shrink-0 flex items-center justify-center bg-[var(--purple-mid)] hover:bg-[var(--purple-dark)] rounded shadow-md transition-colors mr-2">
+                <i id="menuIcon" class="fas fa-bars"></i>
+            </button>
+
+            <!-- Links (Scrollable on small screens, spaced on desktop) -->
+            <div class="hidden md:flex flex-1 justify-around w-full">
+                <button onclick="showPage('program')" id="btn-program"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest nav-active transition-all whitespace-nowrap">Schedule</button>
+                <button onclick="showPage('speakers')" id="btn-speakers"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Speakers</button>
+                <button onclick="showPage('honorees')" id="btn-honorees"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Honorees</button>
+                <button onclick="showPage('vendors')" id="btn-vendors"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Vendors</button>
+                <button onclick="showPage('feedback')" id="btn-feedback"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Feedback</button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay"
+            class="absolute inset-x-0 top-14 bg-white border-t border-gray-100 shadow-2xl md:hidden flex flex-col z-40">
+            <div id="mobileMenuScroll"
+                class="flex flex-col p-6 pb-10 space-y-4 max-h-[65vh] overflow-y-auto custom-scrollbar relative"
+                onscroll="checkMenuScroll()">
+                <div id="scrollIndicator"
+                    class="text-center flex flex-col items-center transition-opacity duration-300 pointer-events-none pb-2">
+                    <span
+                        class="text-[10px] uppercase tracking-widest font-extrabold text-[var(--purple-mid)] mb-1 bg-purple-50 px-3 py-1 rounded-full shadow-sm border border-purple-100">Scroll
+                        down for more</span>
+                    <i class="fas fa-chevron-down text-[var(--purple-mid)] animate-bounce"></i>
+                </div>
+                <button onclick="showPage('program')" id="mobile-btn-program"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-[var(--purple-dark)] bg-purple-50 flex items-center gap-3 transition-all">
+                    <i class="fas fa-clock w-5 text-[var(--gold-accent)]"></i> Event Schedule
+                </button>
+                <button onclick="showPage('speakers')" id="mobile-btn-speakers"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-microphone w-5 text-[var(--gold-accent)]"></i> Speakers & Talent
+                </button>
+                <button onclick="showPage('honorees')" id="mobile-btn-honorees"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-award w-5 text-[var(--gold-accent)]"></i> Honorees
+                </button>
+                <button onclick="showPage('vendors')" id="mobile-btn-vendors"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-store w-5 text-[var(--gold-accent)]"></i> Vendors & Sponsors
+                </button>
+                <button onclick="showPage('feedback')" id="mobile-btn-feedback"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-comment-dots w-5 text-[var(--gold-accent)]"></i> Leave Feedback
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto mt-8 px-4 md:px-6">
+
+        <!-- Program / Schedule Section -->
+        <section id="program" class="space-y-4 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Event Program</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Antonette Whitley-Scott', 'MC & Host', 'antonette')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/antonette.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">5:30 PM – 6:15 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Pre-show & Reception</h3>
+                        <p class="text-sm text-gray-600">Hosted by Antonette Whitley-Scott (MC). Music by DJ Bobby Jay.
+                        </p>
+                        <p class="text-xs text-gray-500 italic mt-1">Photo Booth (6pm – 8pm). Lobby & Hall A: Vendor
+                            Booths, Silent Auction. Hors d'oeuvres will be served.</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <!-- Overlapping Avatars for Dual MCs -->
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showDualProfile('Kayla Williams & Shawn Wallace', 'Masters of Ceremonies', 'kayla_w', 'Kayla Williams', 'shawn', 'Shawn Wallace')">
+                    <div class="flex -space-x-4 flex-shrink-0">
+                        <div class="w-[60px] h-[60px] rounded-full border-2 border-[var(--gold-accent)] bg-cover bg-center shadow-md relative z-10"
+                            style="background-image: url('Images/kayla-williams.jpeg')"></div>
+                        <div class="w-[60px] h-[60px] rounded-full border-2 border-[var(--gold-accent)] bg-cover bg-center shadow-md relative z-0"
+                            style="background-image: url('Images/shawn.jpeg')"></div>
+                    </div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:15 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Grand Opening</h3>
+                        <p class="text-sm text-gray-600">MCs Kayla Williams & Shawn Wallace</p>
+                        <p class="text-xs text-gray-500 italic mt-1">Guests will enter banquet hall BC. Live Band.</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-handshake"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:30 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Welcome & Introductions</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-leaf"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:40 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Land Acknowledgement</h3>
+                        <p class="text-sm text-gray-600">Samantha Wallace (English and French)</p>
+                    </div>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Wendy Butler', 'CEO and Founder', 'wendy')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/wendy.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:45 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Overview of Bon Ami CS Video</h3>
+                        <p class="text-sm text-gray-600">CEO and Founder – Wendy Butler</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-users"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:50 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Activity (Ice Breaker)</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-pray"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">6:55 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Prayer for the Meal</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 border-l-4 border-[var(--gold-accent)] reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-utensils"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:00 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Dinner is Served</h3>
+                        <p class="text-xs text-gray-500 italic mt-1">Guests are encouraged to revisit vendor tables &
+                            silent auction items.</p>
+                    </div>
+                </div>
+
+                <!-- Overlapping Avatars for Neriah and Soprano -->
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showDualProfile('Youth Presenters', 'After School Program', 'neriah', 'Neriah Williams', 'soprano', 'Soprano Scott')">
+                    <div class="flex -space-x-4 flex-shrink-0">
+                        <div class="w-[60px] h-[60px] rounded-full border-2 border-[var(--gold-accent)] bg-cover bg-center shadow-md relative z-10"
+                            style="background-image: url('Images/neriah.jpeg')"></div>
+                        <div class="w-[60px] h-[60px] rounded-full border-2 border-[var(--gold-accent)] bg-cover bg-center shadow-md relative z-0"
+                            style="background-image: url('Images/soprano.jpeg')"></div>
+                    </div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:30 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">After School Program & Entrepreneurship</h3>
+                        <p class="text-sm text-gray-600">Neriah Williams & Soprano Scott (English and French) | Ms. G
+                            (Folkstone Public School)</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Karen Conceicao', 'Survivor & Speaker', 'karen')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/karen.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:35 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Abuse Story</h3>
+                        <p class="text-sm text-gray-600">Karen Conceicao</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Inspector Rebecca Miller-Small', 'Peel Police Greeting', 'rebecca')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/rebecca.jpeg')">
+                        <!-- <i class="fas fa-shield-alt text-white"></i> -->
+                    </div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:40 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Peel Police Greeting</h3>
+                        <p class="text-sm text-gray-600">Inspector Rebecca Miller-Small (on behalf of Chief Duraiappah)
+                        </p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Worship Unity Ministries', 'Dancers', 'worship')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/wum.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:45 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Dancers: WUM</h3>
+                        <p class="text-sm text-gray-600">Worship United Ministers - Song - "Victory Is My Name"</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Leonard Bryan', 'Survivor & Speaker', 'leonard')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/leonard.jpg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:50 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Abuse Story</h3>
+                        <p class="text-sm text-gray-600">Leonard Bryan</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-ice-cream"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">7:55 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Activity 2 & Dessert Bar Open</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 bg-[var(--purple-light)] border border-[var(--purple-mid)] reveal-on-scroll"
+                    onclick="showPage('honorees')">
+                    <div class="profile-img-placeholder bg-white"><i class="fas fa-award text-[var(--gold-accent)]"></i>
+                    </div>
+                    <div class="flex-1">
+                        <span class="time-badge">8:00 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)] uppercase tracking-widest text-sm">Recognition
+                            Ceremony</h3>
+                        <p class="text-xs text-gray-600 mt-1">Honoring pillars of our community & partners.</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Kayla McLean', 'Solo Artist', 'kayla_m')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/kayla.jpg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">8:25 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Solo Artist Performance</h3>
+                        <p class="text-sm text-gray-600">Kayla McLean – Bridge Over Troubled Water</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-6 gala-theme sparkle-bg text-white interactive shadow-lg reveal-on-scroll"
+                    onclick="showProfile('Kayla Williams', 'Keynote Speaker', 'kayla_w')">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6">
+                        <div class="w-20 h-20 rounded-full border-2 border-[var(--gold-accent)] flex-shrink-0 bg-cover bg-center shadow-md"
+                            style="background-image: url('Images/kayla-williams.jpeg')">
+                        </div>
+                        <div class="flex-1">
+                            <span
+                                class="bg-[var(--gold-accent)] text-[var(--purple-dark)] px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest">8:30
+                                PM Keynote</span>
+                            <h3 class="serif text-3xl font-bold mt-2 gold-text">Kayla Williams</h3>
+                            <p class="text-gray-200 font-medium italic mt-1">Keynote Speaker</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-white opacity-80 animate-bounce-x hidden md:block"></i>
+                    </div>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-video"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">8:40 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Video - TBD</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
+                    <div class="profile-img-placeholder"><i class="fas fa-gavel"></i></div>
+                    <div class="flex-1">
+                        <span class="time-badge">8:45 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Auction Item & Raffle Announcements</h3>
+                    </div>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 border-t-4 border-[var(--purple-mid)] reveal-on-scroll"
+                    onclick="showProfile('Wendy Butler', 'CEO and Founder', 'wendy')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/wendy.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">9:10 PM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Closing Remarks</h3>
+                        <p class="text-sm text-gray-600">Wendy Butler</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+
+                <div class="card p-5 interactive flex items-center gap-4 border-t-4 border-[var(--gold-accent)] bg-gray-50 reveal-on-scroll"
+                    onclick="showProfile('DJ Bobby Jay', 'DJ', 'bobby')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/bobby.jpeg')"></div>
+                    <div class="flex-1">
+                        <span class="time-badge">9:15 PM - 12:00 AM</span>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Dance Floor Open</h3>
+                        <p class="text-sm text-gray-600">DJ Bobby Jay</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Section -->
+        <section id="speakers" class="hidden space-y-6 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Speakers & Talent</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">Click on a profile to read their full biography.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Profile Cards -->
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Kayla Williams', 'MC & Keynote Speaker', 'kayla_w')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/kayla-williams.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Kayla Williams</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">MC & Keynote
+                        Speaker</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">TV personality, host, and emcee with over a decade of
+                        experience in broadcast journalism and live television...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Shawn Wallace', 'MC & Host', 'shawn')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/shawn.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Shawn Wallace</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">MC & Host</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Seasoned emcee with over a decade of experience under
+                        his belt, bringing joy and laughter to countless events...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Karen Conceicao', 'Survivor & Speaker', 'karen')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/karen.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Karen Conceicao</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Survivor &
+                        Speaker</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Karen Conceicao is a dedicated educator and advocate
+                        with a career spanning over 25 years as a Teaching Assistant for students with special needs...
+                    </p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Leonard Bryan', 'Survivor & Speaker', 'leonard')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/leonard.jpg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Leonard Bryan</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Survivor &
+                        Speaker</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Leonard Bryan's story begins on the sun-drenched
+                        shores of Montego Bay, Jamaica, and winds through the cold streets of Canada...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Kayla McLean', 'Solo Artist', 'kayla_m')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/kayla.jpg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Kayla McLean</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Solo Artist
+                    </p>
+                    <p class="text-gray-600 text-sm line-clamp-3">A journalist with CBC News Toronto who discovered her
+                        love of singing at four years old...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Joel Sainvil', 'Musician & Producer', 'joel')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/joel.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Joel Sainvil</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician &
+                        Producer</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">A musician, producer, and content creator based in the
+                        GTA area skilled in piano, organ, and bass...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Brandon Anderson', 'Musician', 'brandon')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/brandon.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Brandon Anderson</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">An upcoming musician rooted in Gospel and Jazz. His
+                        love for music is best expressed on the bass, guitar, and piano...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll" onclick="showProfile('DJ Bobby Jay', 'DJ', 'bobby')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/bobby.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">DJ Bobby Jay</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">DJ</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">DJ Bobby Jay is a dynamic DJ ensuring the dance floor
+                        stays packed and the energy stays high all night long...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Neriah Williams', 'Young Entrepreneur', 'neriah')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/neriah.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Neriah Williams</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Young
+                        Entrepreneur</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Neriah is a cheerful 10-year-old in grade 5 who loves
+                        exploring new cuisines and cooking delicious dishes...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Soprano Scott', 'Darling Art by Soprano', 'soprano')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/soprano.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Soprano Scott</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Darling Art by
+                        Soprano</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">A creative brand founded by a talented 9-year-old
+                        artist who has been drawing and painting since the age of 3...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Hon. Charmaine Williams', 'Associate Minister', 'charmaine')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/charmaine.png')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Hon. Charmaine Williams
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Associate
+                        Minister</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Elected to the Legislative Assembly of Ontario in
+                        2022, serving as the Associate Minister of Women’s Social and Economic Opportunity...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Inspector Rebecca Miller-Small', 'Peel Police Greeting', 'rebecca')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/rebecca.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Inspector Rebecca
+                        Miller-Small</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Peel Police
+                        Greeting</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Inspector with Peel Regional Police, bringing over 26
+                        years of dedicated service to the community and supporting vulnerable individuals...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Worship Unity Ministries', 'Dancers', 'worship')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/wum.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Worship Unity Ministries
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Dancers</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">For over 20 years, Worship Unity Ministries has
+                        traveled across North America, sharing messages of hope, love, and spiritual reverence through
+                        movement...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honorees Section -->
+        <section id="honorees" class="hidden space-y-8 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Recognition Ceremony</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">Honoring the pillars of our community at 8:00 PM.</p>
+            </div>
+
+            <div class="card overflow-hidden reveal-on-scroll">
+                <div class="grid divide-y divide-gray-100">
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Councillor Rowena Santos', 'Honoree', 'rowena')">
+                        <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/rowena.webp')"></div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Councillor Rowena Santos</h4>
+                            <p class="text-sm text-gray-500">Councillor</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
+                            <i class="fas fa-award text-xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Councillor Rod Power</h4>
+                            <p class="text-sm text-gray-500">Councillor</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Dr. David Green', 'Honoree & Speaker', 'david')">
+                        <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/Dr. Green picture .jpg')"></div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Dr. David Green</h4>
+                            <p class="text-sm text-gray-500">ED Free For All Community Services & Former PDSB Trustee
+                            </p>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/marsha.jpg')"></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Marsha Forbes</h4>
+                            <p class="text-sm text-gray-500">Principal of Folkstone Public School</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Hon. Charmaine Williams', 'Honoree', 'charmaine')">
+                        <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/charmaine.png')"></div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Honorable Charmaine Williams</h4>
+                            <p class="text-sm text-gray-500">Honorable</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Anthony Joseph', 'Viibe Hair Studio', 'anthony')">
+                        <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/anthony.jpg')"><i class="fas fa-cut text-xl"></i></div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Antony Joseph</h4>
+                            <p class="text-sm text-gray-500">Viibe Barber Shop</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
+                            <i class="fas fa-award text-xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">David Smart</h4>
+                            <p class="text-sm text-gray-500">Royal Windsor Collision</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                        <div
+                            class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
+                            <i class="fas fa-handshake text-xl"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Partners and Agencies</h4>
+                            <p class="text-sm text-gray-500">Community Support</p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-purple-100 bg-purple-50 transition-colors">
+                        <div
+                            class="w-12 h-12 bg-[var(--purple-mid)] rounded-full flex items-center justify-center flex-shrink-0 text-white">
+                            <i class="fas fa-dove"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-[var(--purple-dark)]">Late Njoki Owusu</h4>
+                            <p class="text-sm font-semibold text-[var(--purple-mid)]">Special Tribute by Attilah
+                                Williams</p>
+                            <p class="text-xs text-gray-500 mt-1">Former BACS Volunteer/Worker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vendors Section -->
+        <section id="vendors" class="hidden space-y-8 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Our Vendors & Sponsors</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">Thank you to our generous partners.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Vendor Cards -->
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Donnalee Jemmison', 'Author', 'vendor_donnalee')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-book text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Donnalee Jemmison</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Author</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Author of 'Reaping the Harvest of God's Word', a
+                        collection of inspirational poems based upon biblical themes designed to encourage, inspire and
+                        uplift...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('DyLuxe', 'Natural Hair Care', 'vendor_dyluxe')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
+                            style="background-image: url('Logo/dy.png')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">DyLuxe</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Natural Hair
+                        Care</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">All natural and organic hair oils that are carefully
+                        designed to promote hair growth, healthier strands, and minimal breakage for our curls and
+                        coils...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('At Shaye’s Sparkling Touch', 'Cleaning Solutions', 'vendor_shayes')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Logo/shayes.jpeg')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">At Shaye’s Sparkling Touch
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Cleaning
+                        Solutions</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Specializing in delivering high-quality, reliable
+                        cleaning solutions that leave your space fresh, sanitized, and truly sparkling...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('The Rayne Project', 'Youth Empowerment', 'vendor_rayne')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Logo/rayne.jpeg')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">The Rayne Project</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Youth
+                        Empowerment</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Aiming to empower young Black girls to celebrate their
+                        own identity through stories, workshops, and educational training...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('DJJI ENTERPRISES', 'Learning Hub', 'vendor_djji')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
+                            style="background-image: url('Logo/djj.png')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">DJJI ENTERPRISES</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Learning Hub
+                    </p>
+                    <p class="text-gray-600 text-sm line-clamp-3">An innovative platform designed to help students,
+                        parents and professionals make informed career and financial decisions...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Scotiabank & Re/max Centre', 'Home Financing', 'vendor_scotia')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-home text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Scotiabank & Re/max Centre
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Home Financing
+                        Advisor</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Providing trusted advice to help clients get into
+                        their home and out of their mortgage faster, specializing in first time buyers and business
+                        owners...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Roots Community Services', 'Community Support', 'vendor_roots')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
+                            style="background-image: url('Logo/roots.png')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Roots Community Services
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
+                        Support</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Supporting youth, children, men, women, and families
+                        in building healthy, balanced, and fulfilling lives through culturally responsive programs...
+                    </p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('The Allen Avenue', 'Retail Store', 'vendor_allen')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
+                            style="background-image: url('Logo/allen.png')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">The Allen Avenue</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Retail Store
+                    </p>
+                    <p class="text-gray-600 text-sm line-clamp-3">A distinctive online retail store inspired by a
+                        passion for originality and modern fashion, combining sophistication with chic styles...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Share the Bounty', 'Charitable Organization', 'vendor_share')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Logo/share.jpeg')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Share the Bounty</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Charitable
+                        Organization</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Focused on reducing food insecurity by providing free,
+                        healthy meals to people in need, along with clothing and personal hygiene products...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Zonta', 'Community Partner', 'vendor_zonta')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-info-circle text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Zonta</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
+                        Partner</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Information coming soon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="hidden space-y-8 page-fade-in">
+            <div class="text-center mb-8 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Share Your Experience</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">We'd love to hear your thoughts on the Gala.</p>
+            </div>
+
+            <div class="card p-8 md:p-12 max-w-2xl mx-auto reveal-on-scroll">
+                <form id="feedbackForm" onsubmit="submitFeedback(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold text-[var(--purple-dark)] mb-2">Name (Optional)</label>
+                        <input type="text" name="name"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--purple-mid)] transition-all bg-gray-50 focus:bg-white"
+                            placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-[var(--purple-dark)] mb-2">Email (Optional)</label>
+                        <input type="email" name="email"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--purple-mid)] transition-all bg-gray-50 focus:bg-white"
+                            placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-[var(--purple-dark)] mb-2">Your Feedback /
+                            Suggestions <span class="text-red-500">*</span></label>
+                        <textarea name="feedback" required rows="5"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--purple-mid)] transition-all resize-none bg-gray-50 focus:bg-white"
+                            placeholder="Tell us what you loved or how we can improve..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn"
+                        class="w-full gala-theme text-white font-bold text-lg py-4 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all border-2 border-[var(--gold-accent)]">Submit
+                        Feedback</button>
+
+                    <p class="text-[10px] text-center text-gray-400 mt-4 leading-relaxed">
+                        <i class="fas fa-lock mr-1"></i> Your responses are sent securely.
+                    </p>
+                </form>
+
+                <div id="feedbackSuccess" class="hidden text-center py-10">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check text-4xl text-[var(--purple-mid)]"></i>
+                    </div>
+                    <h3 class="serif text-2xl font-bold text-[var(--purple-dark)] mb-2">Thank You!</h3>
+                    <p class="text-gray-600">Your feedback has been successfully sent. We truly appreciate your time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-10 pb-8 border-t border-gray-300">
+            <div class="text-center reveal-on-scroll">
+                <p class="serif text-2xl text-[var(--purple-dark)] italic mb-4 font-semibold">"Exposing the Cycle of
+                    Abuse"</p>
+                <p class="text-xs text-gray-500 uppercase tracking-[0.2em]">© 2026 Bon Ami Community Services</p>
+                <p class="text-[10px] text-gray-400 mt-2">Dream Convention Center, Brampton</p>
+                <p class="text-[10px] text-gray-400 mt-2 hover:text-[var(--gold-accent)] transition-colors">
+                    Developed by <a href="https://mattrobinsondeveloper.com/" target="_blank" rel="noopener noreferrer"
+                        class="underline">Matt Robinson</a>
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="fixed inset-0 z-[110] flex items-center justify-center p-4 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeProfile()"></div>
+        <div
+            class="bg-white rounded-3xl overflow-hidden max-w-md w-full relative shadow-2xl modal-enter flex flex-col max-h-[85vh]">
+            <button onclick="closeProfile()"
+                class="absolute top-4 right-4 text-white bg-black/30 hover:bg-black/50 w-10 h-10 rounded-full flex items-center justify-center transition-all z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalHeaderImg"
+                class="h-48 gala-theme sparkle-bg flex items-center justify-center relative flex-shrink-0">
+                <div id="modalAvatar"
+                    class="w-28 h-28 rounded-full border-4 border-[var(--gold-accent)] bg-[var(--purple-mid)] flex items-center justify-center text-white text-4xl shadow-lg bg-cover bg-center">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="p-8 overflow-y-auto custom-scrollbar">
+                <h3 id="modalName" class="serif text-3xl font-bold text-[var(--purple-dark)] text-center">Name</h3>
+                <p id="modalRole"
+                    class="text-[var(--gold-accent)] text-xs font-bold text-center uppercase tracking-widest mt-1">Role
+                </p>
+                <div id="modalBioContainer" class="mt-6 w-full text-left">
+                    <div class="h-px bg-gray-200 mb-4 w-full"></div>
+                    <p id="modalBio" class="text-gray-700 text-sm leading-relaxed whitespace-pre-line"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const participantImages = {
+            kayla_w: "Images/kayla-williams.jpeg",
+            shawn: "Images/shawn.jpeg",
+            kayla_m: "Images/kayla.jpg",
+            joel: "Images/joel.jpeg",
+            brandon: "Images/brandon.jpeg",
+            wendy: "Images/wendy.jpeg",
+            karen: "Images/karen.jpeg",
+            leonard: "Images/leonard.jpg",
+            antonette: "Images/antonette.jpeg",
+            david: "Images/Dr. Green picture .jpg",
+            rowena: "Images/rowena.webp",
+            soprano: "Images/soprano.jpeg",
+            worship: "Images/wum.jpeg",
+            bobby: "Images/bobby.jpeg",
+            charmaine: "Images/charmaine.png",
+            marsha: "Images/marsha.jpg",
+            neriah: "Images/neriah.jpeg",
+            rebecca: "Images/rebecca.jpeg",
+            anthony: "Images/anthony.jpg",
+            vendor_dyluxe: "Logo/dy.png",
+            vendor_shayes: "Logo/shayes.jpeg",
+            vendor_rayne: "Logo/rayne.jpeg",
+            vendor_djji: "Logo/djj.png",
+            vendor_roots: "Logo/roots.png",
+            vendor_allen: "Logo/allen.png",
+            vendor_share: "Logo/share.jpeg"
+        };
+
+        const bios = {
+            kayla_w: `Kayla Williams is a TV personality, host, and emcee with over a decade of experience in broadcast journalism and live television.
+
+A former Anchor/Reporter at CP24, Toronto’s leading breaking news channel, she has covered major global and cultural events including the Toronto International Film Festival and the Tokyo Olympics.
+
+Today, Kayla is a sought-after host for corporate events, brand activations and panel discussions, known for her engaging presence, sharp storytelling, and ability to connect with any audience.
+
+A former collegiate and professional volleyball player, Kayla was a member of the Jamaican Women's Indoor Volleyball team. She now coaches at Redeemer University using her knowledge to pour into the next generation of athletes. She is also an avid golfer and enjoys growing the game of golf and making it more relatable and fun for all.
+
+Kayla is a proud native of Scarborough, ON and a member of the Scarborough Business Association's Board of Directors.
+Contact: williamskaylamarie@gmail.com`,
+
+            shawn: `Shawn, a seasoned emcee with over a decade of experience under his belt, often humbly says that hosting chose him, and he's been riding the wave ever since. 
+
+With a warm smile and quick wit, he's brought joy and laughter to countless events, including weddings, birthdays, corporate gatherings, and anniversaries. Whether he's keeping the party started or ensuring the ceremony runs smoothly, Shawn's passion for hosting shines through. 
+
+Recently making Canada his new home, Shawn is no stranger to the stage, and his experience is evident in every event he hosts, leaving a lasting impression on all who attend.`,
+
+            kayla_m: `At just four years old, Kayla McLean discovered her love of singing while watching an episode of The Oprah Winfrey Show with her mother. The episode featured vocal powerhouses Mariah Carey and Whitney Houston, and something clicked—Kayla felt inspired to try singing herself. She opened her mouth, and never really stopped.
+
+These days, she uses her voice in a different way. Now a journalist with CBC News Toronto, she previously worked as a breaking news reporter at Global News Toronto covering everything from sports to crime. Whether through music or storytelling, she’s driven by the same goal: to use her voice for good.`,
+
+            joel: `Joel Sainvil is a musician, producer, and content creator based in the GTA area. Skilled in piano, organ, and bass, he works across gospel, pop, rap, and hip-hop, creating a versatile and evolving sound. 
+
+He has opened for Ricky Dillard and Mariah the Scientist, and has also headlined a show alongside Canadian music legend Sean Desman.
+
+Passionate about music and creative excellence, he is actively building his presence through consistent content creation and collaboration across multiple genres. With aspirations of becoming both a leading producer and an educator, Joel is focused on inspiring others while developing his craft at a high level.`,
+
+            brandon: `Brandon Anderson is an upcoming musician rooted in Gospel and Jazz. His love for music is best expressed on the bass, guitar, and piano.`,
+
+            bobby: `DJ Bobby Jay is a dynamic DJ ensuring the dance floor stays packed and the energy stays high all night long.`,
+
+            neriah: `Neriah is a cheerful 10-year-old in grade 5 who loves exploring new cuisines and cooking delicious dishes. She shines in art, with a knack for drawing, and she enjoys singing and learning French in her free time. Neriah is always ready to lend a helping hand and stand up for her friends, making her a caring and loyal buddy. 
+
+She naturally takes the lead in group activities by encouraging others, listening to ideas, and organizing tasks with a positive, can-do attitude. Her calm, supportive leadership helps her team work together smoothly and feel confident. She dreams of becoming a pilot someday, to help connect people and places around the world.`,
+
+            wendy: `Wendy, whose name means “friend,” is a bubbly and energetic businesswoman currently serving as the CEO/Executive Director of Bon Ami Community Services. She previously served as a director at a shelter in the Peel Region for mothers and children who have fled gender-based violence, and she was a director at the Women’s Counsellor Centre, which supported women in the community who faced gender-based violence and needed counselling support. Wendy has worked in various capacities and positions for over 25 years, bringing dedication, compassion, and a strong commitment to empowering women, men, children, seniors, and families in need.`,
+
+            karen: `Karen Conceicao (Con-say-c-o) is a dedicated educator and advocate with a career spanning over 25 years as a Teaching Assistant for students with special needs with Peel District School Board. She also serves as a Bus Travel Assistant for Peel Board and has nearly a quarter-century of experience in hospitality as a waitress and bartender at Toronto Pearson Airport.
+
+A steadfast survivor, Karen embodies resilience and purpose. She has faced cancer, the loss of a baby, and experiences of domestic violence, including a prolonged court process. These challenges, while deeply painful, have strengthened her commitment to healing, empowerment, and supporting others who are navigating trauma. Her journey underscores the importance of perseverance, mental health awareness, and seeking help when needed.
+
+Today, Karen continues to advocate for survivors, mentor youth, and contribute to her community with empathy, courage, and an unwavering belief in the power of starting anew, one step at a time.`,
+
+            leonard: `Leonard Bryan is a survivor and speaker courageously sharing his personal story to bring awareness and support to the mission of Bon Ami Community Services.`,
+
+            antonette: `Antonette Whitley-Scott is the MC hosting the Pre-show and Reception, welcoming guests and setting the stage for an incredible evening.`,
+
+            david: `Dr. David Green is a respected leader, educator, and community advocate whose career spans more than two decades of service and impact. With over thirteen years of experience in law enforcement and security administration, he has served with Metro SIS, Toronto Police Services, and the Airport Authority. He also held the role of Tribunal Adjudicator with the Ministry of Health, bringing fairness, integrity, and strong decisionmaking to the position. His nine years as a union representative further strengthened his skills in negotiation, advocacy, and conflict resolution.
+
+Dr. Green holds a degree in Law and Security Administration, a master’s in Christian education, and two PhDs, one in Theology and the other in Divinity. His academic achievements reflect his commitment to lifelong learning and his passion for educational leadership.
+
+For 24 years, Dr. Green has served as a Trustee with the Peel District School Board, becoming one of its longestserving and most influential members. During this time, he has championed equity, student success, and stronger communityschool partnerships. His leadership reached a new level during his fouryear term as Chair of the Board, where he guided policy development, strengthened governance, and worked collaboratively with stakeholders to ensure that all students had access to quality education and meaningful opportunities. His tenure as Chair demonstrated his ability to lead with vision, fairness, and unwavering commitment to public service.
+
+In addition to his educational leadership, Dr. Green serves as the Executive Director of Free For All Community Services, where he oversees programs that support youth, families, and marginalized communities. Throughout his career, he has been deeply engaged in addressing systemic antiBlack racism and advocating for equity across institutions. His passion, integrity, and determined work ethic have made him a trusted and influential voice within the community.`,
+
+            rowena: `Rowena is a proud Bramptonian inspired by community and driven by a passion to change the culture of politics and building a more prosperous, livable and sustainable future. She was elected in 2018, and is the first Filipino elected to Council in Brampton. Santos is recognized as the 2023 Woman of Influence honouree by Municipal World, and a Municipal Trailblazer by the Federation of Canadian Municipalities. 
+
+Rowena holds an HBBA degree from the Schulich School of Business, and a Masters in Sustainable Development & Environmental Planning from the London School of Economics.
+
+Prior to being elected she worked at the Ontario legislature for over a decade and has mentored countless youth to be politically active across the GTA. Before politics Rowena worked at Magna, RBC and General Mills. She was also the Program Manager of Corporate Citizenship with Imagine Canada, and Executive Director of Emagine, working with venture capitalists and entrepreneurs at the Centre for Social Innovation.`,
+
+            charmaine: `The Honourable Charmaine Williams
+Associate Minister of Women's Social and Economic Opportunity
+
+Charmaine Williams was elected to the Legislative Assembly of Ontario in the 2022 provincial election. She represents the riding of Brampton Centre as a member of the Progressive Conservative Party of Ontario. She is currently the Associate Minister of Women’s Social and Economic Opportunity and is the first Black woman to be appointed to a PC Cabinet. Prior to provincial politics, she was elected to the Brampton City Council.
+
+Williams has also had a 19-year career as a certified Multi-Systemic Therapist, Behavioral Consultant, and Counsellor. As a mother of five children, she understands the importance of advocating for those who cannot always advocate for themselves.
+
+As a Brampton City Councilor, she had the opportunity to spearhead numerous economic, social, and cultural initiatives that benefited Brampton communities. Her track record of success is testament to her ability to help communities thrive, build programs and institutions to support vulnerable populations, and provide dependable leadership.`,
+
+            rebecca: `Miller-Small, Rebecca
+
+“Rebecca is an Inspector with Peel Regional Police, bringing over 26 years of dedicated service to the community. Raised in a small town in Nova Scotia, she holds a Bachelor of Arts degree with a major in Sociology, a foundation that has guided her career-long commitment to supporting vulnerable individuals.
+
+Rebecca has extensive investigative experience in human trafficking and later served in leadership roles overseeing the Special Victims Unit and the Internet Child Exploitation Unit. She currently serves as the Inspector in charge of Crimes Against Persons, with responsibility for several critical areas, including the Special Victims Unit, Internet Child Exploitation Unit, Offender Management Unit, Intimate Partner Violence Unit, and the Power Case Unit.
+
+A passionate advocate for survivors of intimate partner violence, Rebecca played a key role in the development of Peel Regional Police’s centralized Intimate Partner Violence Unit, launched in April 2021 to strengthen service delivery and better support victims. She has also been instrumental in building strong partnerships with 29 community agencies through the Safe Centre of Peel, helping to provide coordinated, wraparound services for survivors and their families.
+
+Rebecca further demonstrates her commitment to victim advocacy through her role as a Board Member with Victim Services of Peel, where she continues to support initiatives that provide critical assistance to individuals and families in crisis. She regularly collaborates with police services and community organizations across Canada, sharing this innovative, victim-centered model to support the development of similar approaches nationwide.
+
+Prior to her policing career, she worked in an emergency department, an experience that continues to inform her compassionate, empathetic approach to leadership. Driven by a deep commitment to service, Rebecca remains focused on making a meaningful difference in the lives of those who need it most.”`,
+
+            soprano: `Darling Art by Soprano is a creative brand founded by a talented 9-year-old artist who has been drawing and painting since the age of 3. With a passion for self-expression and imagination, Soprano specializes in beautiful canvas art featuring nature scenes and uplifting daily affirmations. In addition to painting, she also creates handmade bracelets, each piece crafted with care and creativity. Darling Art celebrates positivity, originality, and the joy of art through a young artist’s inspiring perspective.`,
+
+            worship: `For over 20 years, Worship Unity Ministries has traveled across North America, sharing messages of hope, love, and spiritual reverence through movement. We specialize in African and liturgical-inspired dance, blending rhythm, grace, and devotion to uplift all people. Each step and gesture expresses our deepest faith and gratitude, inviting others to experience the transformative power of worship and community. The dynamic dance group performs as a sacred offering to the divine, in whatever form that expression takes for anyone present.`,
+
+            anthony: `Viibe Hair Studio (Vibe), a modern barbershop and hair studio located at 279 Queen St East in Brampton, ON, is renowned for its welcoming atmosphere and expert grooming. The studio specializes in fades, designs, and precision cuts for men, while offering hair services for all ages, including specialized kids’ cuts. 
+
+We are grateful to Anthony Joseph, owner of Viibe Salon, who generously sponsored our Bon Ami Community Services back-to-school backpack events in 2024 and 2025, mobilizing his full team of barbers and hairdressers to volunteer and cut hair for boys and girls in need. Viibe’s involvement has significantly enhanced local access to grooming services for underserved youth and reflects a strong commitment to wellness, confidence, and community support through practical and compassionate action.`,
+
+            vendor_donnalee: `I am the author of my book entitled Reaping the Harvest of God's Word, which is a collection of inspirational poems based upon biblical themes and it is designed to encourage, inspire and uplift the reader.`,
+
+            vendor_dyluxe: `All natural and organic hair oils that are carefully designed to promote hair growth, healthier strands, and minimal breakage for our curls and coils.`,
+
+            vendor_shayes: `At Shaye’s Sparkling Touch, we specialize in delivering high-quality, reliable cleaning solutions that leave your space fresh, sanitized, and truly sparkling. Our services are designed to meet the needs of busy households and clients who value a clean, comfortable environment. 
+
+Our Services Include: 
+• Regular residential cleaning 
+• Deep cleaning for a thorough refresh 
+• Kitchen and bathroom sanitization 
+• Move-in and move-out cleaning 
+• Post-construction clean-up 
+• Customized cleaning plans tailored to your needs 
+
+With a strong attention to detail and a commitment to excellence, we take pride in creating spotless spaces you can enjoy with confidence.`,
+
+            vendor_rayne: `The Rayne Project aims to empower young Black girls to celebrate their own identity. We do this through Project Pen - a series of children stories that center around a young Black girls perspective, Rayne, and share life through her eyes. We also offer workshops, educational trainings, and author read alouds.`,
+
+            vendor_djji: `DJJI ENTERPRISES Learning hub is an innovative platform designed to help students, parents and professionals make informed career and financial decisions before investing in education.`,
+
+            vendor_scotia: `Home Financing Advisor: Purchases, Switches, refinances with special programs for:
+1) First time home buyers 
+2) Business for Self clients 
+3) Projected income for Doctors, Dentists and Optometrists and many other programs. 
+
+26 years of banking experience to provide clients with trusted advice to help clients get into their home and out of their mortgage faster.`,
+
+            vendor_roots: `At Roots Community Services (RootsCS), we support youth, children, men, women, and families in building healthy, balanced, and fulfilling lives. Our programs are designed to strengthen wellbeing, build resilience, and help individuals become active, positive contributors in their communities. We place a strong focus on serving Black, African, and Caribbean Canadians, delivering all programs through a culturally responsive, anti-oppression, and anti-racism approach. This ensures our services are respectful, relevant, and grounded in the lived experiences of the communities we serve. 
+
+Through our Pathways to Wellness programs, we provide support across all stages of life, from children as young as 6 years old to seniors in their 90s. Our services are designed to meet diverse needs, including emotional wellbeing, community connection, personal growth, and family support. We aim to empower individuals and families by creating safe, inclusive spaces where people feel heard, supported, and valued. Whether working with youth developing confidence, adults navigating life challenges, or seniors maintaining wellbeing and connection, RootsCS is committed to walking alongside community members at every stage of their journey.`,
+
+            vendor_allen: `The Allen Avenue is a distinctive online retail store that has been independently owned and operated by Candace Allen since October 25, 2019. It was inspired by a passion for originality and modern fashion, seamlessly combining sophistication with chic styles, all infused with a vibrant personality. We embrace individual style for all, regardless of age or background. 
+
+Our motto is "Sophisticated Statements," and we prioritize originality in everything we do. Our product selection ranges from casual everyday attire to elegant outfits for special occasions, along with an assortment of accessories. We proudly feature collections for both women and men, showcasing curated brands, with the majority of items handcrafted in-house. Let your light shine, with The Allen Avenue.`,
+
+            vendor_share: `Share the Bounty is a charitable organization, primarily operating in Canada (e.g., Mississauga), focused on reducing food insecurity by providing free, healthy meals to people in need. It acts as a community-driven initiative, collecting excess food and preparing meals while also distributing clothing and personal hygiene products to support those facing hardships.`,
+
+            vendor_zonta: `Information coming soon.`
+        };
+
+        // Scroll Animation Logic
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.15 });
+
+        function initScrollAnimations() {
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                scrollObserver.observe(el);
+            });
+        }
+
+        window.onload = () => {
+            document.body.classList.add('loaded');
+            initScrollAnimations();
+        };
+
+        function enterProgram() {
+            const overlay = document.getElementById('welcomeOverlay');
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none';
+            setTimeout(() => { overlay.style.display = 'none'; }, 700);
+        }
+
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const icon = document.getElementById('menuIcon');
+            overlay.classList.toggle('active');
+            if (overlay.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+
+        function checkMenuScroll() {
+            const menu = document.getElementById('mobileMenuScroll');
+            const indicator = document.getElementById('scrollIndicator');
+            if (menu.scrollHeight <= menu.clientHeight) {
+                indicator.style.display = 'none';
+                return;
+            } else {
+                indicator.style.display = 'flex';
+            }
+            if (menu.scrollTop > 10) {
+                indicator.style.opacity = '0';
+            } else {
+                indicator.style.opacity = '1';
+            }
+        }
+
+        function showPage(pageId) {
+            const menuOverlay = document.getElementById('mobileMenuOverlay');
+            if (menuOverlay && menuOverlay.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+
+            document.querySelectorAll('section .reveal-on-scroll').forEach(el => {
+                el.classList.remove('is-visible');
+            });
+
+            document.querySelectorAll('section').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+                btn.classList.add('text-gray-400');
+            });
+            document.getElementById('btn-' + pageId).classList.add('nav-active');
+            document.getElementById('btn-' + pageId).classList.remove('text-gray-400');
+
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-50', 'text-[var(--purple-dark)]');
+                btn.classList.add('text-gray-600');
+            });
+            document.getElementById('mobile-btn-' + pageId).classList.add('bg-purple-50', 'text-[var(--purple-dark)]');
+            document.getElementById('mobile-btn-' + pageId).classList.remove('text-gray-600');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showProfile(name, role, key) {
+            resetModal();
+            const modal = document.getElementById('profileModal');
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalRole').innerText = role;
+
+            if (bios[key]) {
+                document.getElementById('modalBioContainer').style.display = 'block';
+                document.getElementById('modalBio').innerText = bios[key];
+            } else {
+                document.getElementById('modalBioContainer').style.display = 'none';
+            }
+
+            const avatar = document.getElementById('modalAvatar');
+
+            if (participantImages[key]) {
+                avatar.style.backgroundImage = `url('${participantImages[key]}')`;
+
+                if (key.startsWith('vendor')) {
+                    avatar.style.backgroundSize = 'contain';
+                    avatar.style.backgroundColor = 'white';
+                } else {
+                    avatar.style.backgroundSize = 'cover';
+                }
+
+                avatar.style.backgroundPosition = 'center';
+                avatar.style.backgroundRepeat = 'no-repeat';
+                avatar.innerHTML = "";
+            } else {
+                let icon = 'fa-user';
+                if (key === 'kayla_w') icon = 'fa-star';
+                if (key === 'shawn' || key === 'antonette' || key === 'wendy') icon = 'fa-microphone-alt';
+                if (key === 'kayla_m') icon = 'fa-music';
+                if (key === 'joel') icon = 'fa-guitar';
+                if (key === 'brandon') icon = 'fa-drum';
+                if (key === 'karen' || key === 'leonard') icon = 'fa-heart';
+                if (key === 'david' || key === 'rowena') icon = 'fa-award';
+                if (key === 'worship') icon = 'fa-child';
+                if (key === 'soprano' || key === 'neriah') icon = 'fa-palette';
+                if (key === 'rebecca') icon = 'fa-shield-alt';
+                if (key === 'charmaine') icon = 'fa-landmark';
+                if (key === 'anthony') icon = 'fa-cut';
+
+                // Vendor icons
+                if (key === 'vendor_donnalee') icon = 'fa-book';
+                if (key === 'vendor_scotia') icon = 'fa-home';
+                if (key === 'vendor_zonta') icon = 'fa-info-circle';
+
+                avatar.innerHTML = `<i class="fas ${icon}"></i>`;
+            }
+
+            // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
+            modal.classList.remove('hidden');
+        }
+
+        function showDualProfile(title, role, key1, name1, key2, name2) {
+            resetModal();
+            const modal = document.getElementById('profileModal');
+            document.getElementById('modalName').innerText = title;
+            document.getElementById('modalRole').innerText = role;
+
+            const bioContainer = document.getElementById('modalBioContainer');
+            const bioText = document.getElementById('modalBio');
+
+            bioContainer.style.display = 'block';
+
+            // Inject two separated bios
+            bioText.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="font-bold text-[var(--purple-dark)] text-lg mb-2 border-b border-gray-200 pb-1">${name1}</h4>
+                    <p class="whitespace-pre-line text-gray-700 text-sm leading-relaxed">${bios[key1] || ''}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[var(--purple-dark)] text-lg mb-2 border-b border-gray-200 pb-1">${name2}</h4>
+                    <p class="whitespace-pre-line text-gray-700 text-sm leading-relaxed">${bios[key2] || ''}</p>
+                </div>
+            `;
+
+            const avatarContainer = document.getElementById('modalAvatar');
+            avatarContainer.className = "flex items-center justify-center gap-4 transition-all duration-500 bg-transparent border-none shadow-none w-auto";
+
+            const img1 = participantImages[key1] ? `style="background-image: url('${participantImages[key1]}'); background-size: cover; background-position: center;"` : '';
+            const img2 = participantImages[key2] ? `style="background-image: url('${participantImages[key2]}'); background-size: cover; background-position: center;"` : '';
+
+            avatarContainer.innerHTML = `
+                <div class="w-20 h-20 rounded-full border-4 border-[var(--gold-accent)] bg-[var(--purple-mid)] flex items-center justify-center text-white text-2xl shadow-lg" ${img1}>${!participantImages[key1] ? '<i class="fas fa-star"></i>' : ''}</div>
+                <div class="w-20 h-20 rounded-full border-4 border-[var(--gold-accent)] bg-[var(--purple-mid)] flex items-center justify-center text-white text-2xl shadow-lg" ${img2}>${!participantImages[key2] ? '<i class="fas fa-microphone-alt"></i>' : ''}</div>
+            `;
+
+            document.body.style.overflow = 'hidden';
+            modal.classList.remove('hidden');
+        }
+
+        function resetModal() {
+            const avatar = document.getElementById('modalAvatar');
+            avatar.className = "w-28 h-28 rounded-full border-4 border-[var(--gold-accent)] bg-[var(--purple-mid)] flex items-center justify-center text-white text-4xl shadow-lg bg-cover bg-center";
+            avatar.style.backgroundImage = "none";
+            avatar.style.backgroundColor = "var(--purple-mid)";
+            avatar.innerHTML = `<i class="fas fa-user"></i>`;
+
+            // Clear dual HTML so normal innerText works cleanly on next run
+            document.getElementById('modalBio').innerHTML = '';
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function submitFeedback(e) {
+            e.preventDefault();
+            const form = document.getElementById('feedbackForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerText;
+
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                document.getElementById('feedbackSuccess').classList.remove('hidden');
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'block';
+                    document.getElementById('feedbackSuccess').classList.add('hidden');
+                    showPage('program');
+                }, 4000);
+            }, 1000); // Simulated send
+        }
+    </script>
+</body>
+
+</html>
