@@ -320,6 +320,12 @@
     <div id="welcomeOverlay"
         class="fixed inset-0 flex items-center justify-center p-6 text-center transition-opacity duration-700 sparkle-bg">
         <div class="max-w-2xl text-white">
+
+            <!-- Bon Ami Logo -->
+            <div class="mb-6 inline-block bg-white p-3 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                <img src="Logo/bonami.png" alt="Bon Ami Logo" class="h-20 w-20 object-contain rounded-full" />
+            </div>
+
             <p class="uppercase tracking-[0.3em] text-sm md:text-base mb-6 text-gray-300 font-bold">Bon Ami Community
                 Services<br /><span class="text-[10px] font-normal tracking-widest">Proudly Presents its 3rd Annual
                     Black Tie Gala</span></p>
@@ -337,6 +343,11 @@
     <!-- Header -->
     <header class="gala-theme sparkle-bg text-white py-16 px-6 text-center shadow-2xl relative overflow-hidden">
         <div class="relative z-10">
+            <!-- Bon Ami Logo -->
+            <div class="mb-4 inline-block bg-white p-2 rounded-full shadow-lg reveal-on-scroll">
+                <img src="Logo/bonami.png" alt="Bon Ami Logo" class="h-16 w-16 object-contain rounded-full" />
+            </div>
+
             <h1 class="serif text-4xl md:text-5xl mb-2 font-bold reveal-on-scroll gold-text">Exposing the Cycle of Abuse
             </h1>
             <p class="italic text-gray-300 mb-6 reveal-on-scroll text-sm md:text-base">For Women & Men: ~ No More
@@ -357,8 +368,8 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md z-50 relative">
-        <div class="max-w-5xl mx-auto flex items-center justify-between px-6 h-14 md:h-16">
+    <nav class="sticky top-0 bg-white/95 backdrop-blur-md shadow-md z-50 relative overflow-x-auto hide-scrollbar">
+        <div class="max-w-5xl mx-auto flex items-center justify-between px-6 h-14 md:h-16 min-w-max md:min-w-0">
             <div class="serif font-extrabold text-[var(--purple-dark)] text-xl md:hidden tracking-wider mr-6">GALA 2026
             </div>
 
@@ -373,11 +384,14 @@
                 <button onclick="showPage('program')" id="btn-program"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest nav-active transition-all whitespace-nowrap">Schedule</button>
                 <button onclick="showPage('speakers')" id="btn-speakers"
-                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Speakers</button>
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Talent
+                    & Speakers</button>
                 <button onclick="showPage('honorees')" id="btn-honorees"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Honorees</button>
                 <button onclick="showPage('vendors')" id="btn-vendors"
-                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Vendors</button>
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Partners</button>
+                <button onclick="showPage('sponsors')" id="btn-sponsors"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Sponsors</button>
                 <button onclick="showPage('feedback')" id="btn-feedback"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Feedback</button>
             </div>
@@ -402,7 +416,7 @@
                 </button>
                 <button onclick="showPage('speakers')" id="mobile-btn-speakers"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
-                    <i class="fas fa-microphone w-5 text-[var(--gold-accent)]"></i> Speakers & Talent
+                    <i class="fas fa-microphone w-5 text-[var(--gold-accent)]"></i> Talent & Speakers
                 </button>
                 <button onclick="showPage('honorees')" id="mobile-btn-honorees"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
@@ -410,7 +424,11 @@
                 </button>
                 <button onclick="showPage('vendors')" id="mobile-btn-vendors"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
-                    <i class="fas fa-store w-5 text-[var(--gold-accent)]"></i> Vendors & Sponsors
+                    <i class="fas fa-handshake w-5 text-[var(--gold-accent)]"></i> Partners & Supporters
+                </button>
+                <button onclick="showPage('sponsors')" id="mobile-btn-sponsors"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-heart w-5 text-[var(--gold-accent)]"></i> Sponsors
                 </button>
                 <button onclick="showPage('feedback')" id="mobile-btn-feedback"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
@@ -440,8 +458,9 @@
                         <h3 class="font-bold text-[var(--purple-dark)]">Pre-show & Reception</h3>
                         <p class="text-sm text-gray-600">Hosted by Antonette Whitley-Scott (MC). Music by DJ Bobby Jay.
                         </p>
-                        <p class="text-xs text-gray-500 italic mt-1">Photo Booth (6pm – 8pm). Lobby & Hall A: Vendor
-                            Booths, Silent Auction. Hors d'oeuvres will be served.</p>
+                        <p class="text-xs text-gray-500 italic mt-1">Photo Booth (- 6pm – 8pm). Visit
+                            Vendors/Information Booths and Silent auction items (Hall A) Vendor Passport. Hors d’oeuvres
+                            and drinks will be served.</p>
                     </div>
                     <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
                 </div>
@@ -472,13 +491,16 @@
                     </div>
                 </div>
 
-                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
-                    <div class="profile-img-placeholder"><i class="fas fa-leaf"></i></div>
+                <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
+                    onclick="showProfile('Samantha Wallace', 'Land Acknowledgement', 'samantha')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/samantha.jpeg')"></div>
                     <div class="flex-1">
                         <span class="time-badge">6:40 PM</span>
                         <h3 class="font-bold text-[var(--purple-dark)]">Land Acknowledgement</h3>
                         <p class="text-sm text-gray-600">Samantha Wallace (English and French)</p>
                     </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
                 </div>
 
                 <div class="card p-5 interactive flex items-center gap-4 reveal-on-scroll"
@@ -514,8 +536,8 @@
                     <div class="flex-1">
                         <span class="time-badge">7:00 PM</span>
                         <h3 class="font-bold text-[var(--purple-dark)]">Dinner is Served</h3>
-                        <p class="text-xs text-gray-500 italic mt-1">Guests are encouraged to revisit vendor tables &
-                            silent auction items.</p>
+                        <p class="text-xs text-gray-500 italic mt-1">Guests are encouraged to revisit vendors tables and
+                            Silent auction items.</p>
                     </div>
                 </div>
 
@@ -531,8 +553,8 @@
                     <div class="flex-1">
                         <span class="time-badge">7:30 PM</span>
                         <h3 class="font-bold text-[var(--purple-dark)]">After School Program & Entrepreneurship</h3>
-                        <p class="text-sm text-gray-600">Neriah Williams & Soprano Scott (English and French) | Ms. G
-                            (Folkstone Public School)</p>
+                        <p class="text-sm text-gray-600">Neriah Williams and Soprano Scott (English and French) | Ms. G
+                            – Folkstone Public School</p>
                     </div>
                     <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
                 </div>
@@ -553,11 +575,12 @@
                     onclick="showProfile('Inspector Rebecca Miller-Small', 'Peel Police Greeting', 'rebecca')">
                     <div class="profile-img-placeholder bg-cover bg-center"
                         style="background-image: url('Images/rebecca.jpeg')">
+                        <!-- <i class="fas fa-shield-alt text-white"></i> -->
                     </div>
                     <div class="flex-1">
                         <span class="time-badge">7:40 PM</span>
                         <h3 class="font-bold text-[var(--purple-dark)]">Peel Police Greeting</h3>
-                        <p class="text-sm text-gray-600">Inspector Rebecca Miller-Small (on behalf of Chief Duraiappah)
+                        <p class="text-sm text-gray-600">Inspector Rebecca Miller-Small on behalf of Chief Duraiappah
                         </p>
                     </div>
                     <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
@@ -570,7 +593,7 @@
                     <div class="flex-1">
                         <span class="time-badge">7:45 PM</span>
                         <h3 class="font-bold text-[var(--purple-dark)]">Dancers: WUM</h3>
-                        <p class="text-sm text-gray-600">Worship United Ministers - Song - "Victory Is My Name"</p>
+                        <p class="text-sm text-gray-600">Worship Unity Ministries – Song - Victory Is My Name</p>
                     </div>
                     <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
                 </div>
@@ -637,12 +660,15 @@
                     </div>
                 </div>
 
-                <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
-                    <div class="profile-img-placeholder"><i class="fas fa-video"></i></div>
+                <div class="card p-5 interactive flex items-center gap-4 border-l-4 border-[var(--gold-accent)] reveal-on-scroll"
+                    onclick="showProfile('Hon. Charmaine Williams', 'Associate Minister', 'charmaine')">
+                    <div class="profile-img-placeholder bg-cover bg-center"
+                        style="background-image: url('Images/charmaine.png')"></div>
                     <div class="flex-1">
                         <span class="time-badge">8:40 PM</span>
-                        <h3 class="font-bold text-[var(--purple-dark)]">Video - TBD</h3>
+                        <h3 class="font-bold text-[var(--purple-dark)]">Honorable Charmaine Williams - Address</h3>
                     </div>
+                    <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
                 </div>
 
                 <div class="card p-5 flex items-center gap-4 reveal-on-scroll">
@@ -679,10 +705,10 @@
             </div>
         </section>
 
-        <!-- Speakers Section -->
+        <!-- Speakers & Talent Section -->
         <section id="speakers" class="hidden space-y-6 page-fade-in">
             <div class="text-center mb-10 reveal-on-scroll">
-                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Speakers & Talent</h2>
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Talent & Speakers</h2>
                 <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
                 <p class="text-gray-500 italic mt-2">Click on a profile to read their full biography.</p>
             </div>
@@ -780,35 +806,6 @@
                         love of singing at four years old...</p>
                 </div>
 
-                <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Joel Sainvil', 'Musician & Producer', 'joel')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Images/joel.jpeg')">
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Joel Sainvil</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician &
-                        Producer</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">A musician, producer, and content creator based in the
-                        GTA area skilled in piano, organ, and bass...</p>
-                </div>
-
-                <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Brandon Anderson', 'Musician', 'brandon')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Images/brandon.jpeg')">
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Brandon Anderson</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">An upcoming musician rooted in Gospel and Jazz. His
-                        love for music is best expressed on the bass, guitar, and piano...</p>
-                </div>
-
                 <div class="card p-6 interactive reveal-on-scroll" onclick="showProfile('DJ Bobby Jay', 'DJ', 'bobby')">
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
@@ -900,6 +897,56 @@
                         movement...</p>
                 </div>
             </div>
+
+            <!-- Meet the Band Section -->
+            <div class="col-span-1 md:col-span-2 mt-12 mb-4 border-b border-gray-200 pb-2 reveal-on-scroll">
+                <h3 class="serif text-3xl text-[var(--purple-dark)] font-bold">Meet the Band</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Joel Sainvil', 'Musician & Producer', 'joel')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/joel.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Joel Sainvil</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician &
+                        Producer</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">A musician, producer, and content creator based in the
+                        GTA area skilled in piano, organ, and bass...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Isaiah Hamilton', 'Drummer', 'isaiah')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/isaiah.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Isaiah Hamilton</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Drummer</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Isaiah began drumming at 1 and started lessons at 3½.
+                        He trained with multiple schools and private lessons, performed publicly from age 4...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Brandon Anderson', 'Musician', 'brandon')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/brandon.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">Brandon Anderson</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Musician</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">An upcoming musician rooted in Gospel and Jazz. His
+                        love for music is best expressed on the bass, guitar, and piano...</p>
+                </div>
+            </div>
         </section>
 
         <!-- Honorees Section -->
@@ -922,14 +969,15 @@
                         </div>
                         <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
-                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
-                        <div
-                            class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
-                            <i class="fas fa-award text-xl"></i></div>
-                        <div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Councillor Rod Power', 'Honoree', 'rod')">
+                        <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
+                            style="background-image: url('Images/rod.JPG')"></div>
+                        <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Councillor Rod Power</h4>
                             <p class="text-sm text-gray-500">Councillor</p>
                         </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
                     <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
                         onclick="showProfile('Dr. David Green', 'Honoree & Speaker', 'david')">
@@ -988,60 +1036,153 @@
                             <p class="text-sm text-gray-500">Community Support</p>
                         </div>
                     </div>
-                    <div class="p-6 flex items-center gap-5 hover:bg-purple-100 bg-purple-50 transition-colors">
-                        <div
-                            class="w-12 h-12 bg-[var(--purple-mid)] rounded-full flex items-center justify-center flex-shrink-0 text-white">
-                            <i class="fas fa-dove"></i></div>
-                        <div>
+                    <div class="p-6 flex items-center gap-5 hover:bg-purple-100 bg-purple-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Late Njoki Owusu', 'Special Tribute', 'njoki')">
+                        <div class="w-12 h-12 bg-[var(--purple-mid)] rounded-full flex items-center justify-center flex-shrink-0 text-white bg-cover bg-center"
+                            style="background-image: url('Images/njoki.jpeg')"></div>
+                        <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Late Njoki Owusu</h4>
                             <p class="text-sm font-semibold text-[var(--purple-mid)]">Special Tribute by Attilah
                                 Williams</p>
                             <p class="text-xs text-gray-500 mt-1">Former BACS Volunteer/Worker</p>
                         </div>
+                        <i class="fas fa-chevron-right text-[var(--purple-mid)]"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Vendors Section -->
+        <!-- Vendors / Partners Section -->
         <section id="vendors" class="hidden space-y-8 page-fade-in">
             <div class="text-center mb-10 reveal-on-scroll">
-                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Our Vendors & Sponsors</h2>
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Partners & Supporters</h2>
                 <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
-                <p class="text-gray-500 italic mt-2">Thank you to our generous partners.</p>
+                <p class="text-gray-500 italic mt-2">Thank you to our generous partners and supporters.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Vendor Cards -->
                 <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Donnalee Jemmison', 'Author', 'vendor_donnalee')">
+                    onclick="showProfile('HEAL Network', 'Partner', 'vendor_heal')">
                     <div class="flex justify-between items-start mb-4">
                         <div
                             class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
-                            <i class="fas fa-book text-white text-2xl"></i>
+                            <i class="fas fa-handshake text-white text-2xl"></i>
                         </div>
                         <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Donnalee Jemmison</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Author</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Author of 'Reaping the Harvest of God's Word', a
-                        collection of inspirational poems based upon biblical themes designed to encourage, inspire and
-                        uplift...</p>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">HEAL Network</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Partner</p>
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('DyLuxe', 'Natural Hair Care', 'vendor_dyluxe')">
+                    onclick="showProfile('Free For All Community Services', 'Community Support', 'vendor_freeforall')">
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
-                            style="background-image: url('Logo/dy.png')"></div>
+                            style="background-image: url('Logo/freeforall.jpg')"></div>
                         <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">DyLuxe</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Natural Hair
-                        Care</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">All natural and organic hair oils that are carefully
-                        designed to promote hair growth, healthier strands, and minimal breakage for our curls and
-                        coils...</p>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Free For All</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
+                        Support</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('The Rayne Project', 'Youth Empowerment', 'vendor_rayne')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Logo/rayne.jpeg')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">The Rayne Project</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Youth
+                        Empowerment</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Aiming to empower young Black girls to celebrate their
+                        own identity through stories, workshops, and educational training...</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('City Serve', 'Partner', 'vendor_cityserve')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-city text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">City Serve</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Partner</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Folkstone Public School', 'Education Partner', 'vendor_folkstone')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-school text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Folkstone Public School</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Education
+                        Partner</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Umbrella of Hope', 'Community Support', 'vendor_umbrella')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-umbrella text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Umbrella of Hope</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
+                        Support</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Safiya\'s House of Kreation', 'Partner', 'vendor_safiya')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Safiya's House of Kreation
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Partner</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Soul Wise Photography', 'Photography Partner', 'vendor_soulwise')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-camera text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Soul Wise Photography</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Photography
+                    </p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('The Brian Harris Foundation', 'Foundation Partner', 'vendor_brianharris')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-white text-2xl"></i>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">The Brian Harris Foundation
+                    </h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Foundation
+                        Partner</p>
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
@@ -1060,20 +1201,6 @@
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('The Rayne Project', 'Youth Empowerment', 'vendor_rayne')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Logo/rayne.jpeg')"></div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">The Rayne Project</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Youth
-                        Empowerment</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Aiming to empower young Black girls to celebrate their
-                        own identity through stories, workshops, and educational training...</p>
-                </div>
-
-                <div class="card p-6 interactive reveal-on-scroll"
                     onclick="showProfile('DJJI ENTERPRISES', 'Learning Hub', 'vendor_djji')">
                     <div class="flex justify-between items-start mb-4">
                         <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
@@ -1088,21 +1215,17 @@
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Scotiabank & Re/max Centre', 'Home Financing', 'vendor_scotia')">
+                    onclick="showProfile('Share the Bounty', 'Charitable Organization', 'vendor_share')">
                     <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
-                            <i class="fas fa-home text-white text-2xl"></i>
-                        </div>
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Logo/share.jpeg')"></div>
                         <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Scotiabank & Re/max Centre
-                    </h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Home Financing
-                        Advisor</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Providing trusted advice to help clients get into
-                        their home and out of their mortgage faster, specializing in first time buyers and business
-                        owners...</p>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Share the Bounty</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Charitable
+                        Organization</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Focused on reducing food insecurity by providing free,
+                        healthy meals to people in need, along with clothing and personal hygiene products...</p>
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
@@ -1136,32 +1259,75 @@
                 </div>
 
                 <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Share the Bounty', 'Charitable Organization', 'vendor_share')">
+                    onclick="showProfile('Zonta Brampton-Caledon', 'Community Partner', 'vendor_zonta')">
                     <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Logo/share.jpeg')"></div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Share the Bounty</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Charitable
-                        Organization</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Focused on reducing food insecurity by providing free,
-                        healthy meals to people in need, along with clothing and personal hygiene products...</p>
-                </div>
-
-                <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Zonta', 'Community Partner', 'vendor_zonta')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md flex items-center justify-center">
-                            <i class="fas fa-info-circle text-white text-2xl"></i>
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-contain bg-center bg-no-repeat"
+                            style="background-image: url('Logo/zonta.jpeg')">
                         </div>
                         <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
                     </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Zonta</h3>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Zonta Brampton-Caledon</h3>
                     <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
                         Partner</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Information coming soon.</p>
+                </div>
+
+                <div class="card p-6 interactive reveal-on-scroll"
+                    onclick="showProfile('Donnalee Jemmison', 'Author', 'vendor_donnalee')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-white rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/donnalee.jpg')"></div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Donnalee Jemmison</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Author</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Author of 'Reaping the Harvest of God's Word', a
+                        collection of inspirational poems based upon biblical themes designed to encourage, inspire and
+                        uplift...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="hidden space-y-8 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Our Sponsors</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">With deepest gratitude to our generous sponsors.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 reveal-on-scroll">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <img src="Logo/kandid.jpeg" alt="Kandid Creatives" class="max-h-28 w-full object-contain" />
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <img src="Sponsors /pizza.jpeg" alt="Pizza Pizza" class="max-h-28 w-full object-contain" />
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <img src="Sponsors /tims.jpeg" alt="Tim Hortons" class="max-h-28 w-full object-contain" />
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <h3 class="font-bold text-[var(--purple-dark)] text-xl text-center">Mane Authority Salon</h3>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <img src="Sponsors /rosarium.png" alt="Rosarium" class="max-h-28 w-full object-contain" />
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
+                    <h3 class="font-bold text-[var(--purple-dark)] text-xl text-center">Whirlpool</h3>
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40 md:col-start-2">
+                    <img src="Sponsors /footerlocker.jpeg" alt="Foot Locker" class="max-h-28 w-full object-contain" />
+                </div>
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40 md:col-start-3">
+                    <img src="Images/donnalee.jpg" alt="Donnalee Jemmison"
+                        class="max-h-28 w-full object-contain rounded-md" />
                 </div>
             </div>
         </section>
@@ -1266,13 +1432,16 @@
             shawn: "Images/shawn.jpeg",
             kayla_m: "Images/kayla.jpg",
             joel: "Images/joel.jpeg",
+            isaiah: "Images/isaiah.jpeg",
             brandon: "Images/brandon.jpeg",
             wendy: "Images/wendy.jpeg",
             karen: "Images/karen.jpeg",
             leonard: "Images/leonard.jpg",
             antonette: "Images/antonette.jpeg",
             david: "Images/Dr. Green picture .jpg",
+            rod: "Images/rod.JPG",
             rowena: "Images/rowena.webp",
+            samantha: "Images/samantha.jpeg",
             soprano: "Images/soprano.jpeg",
             worship: "Images/wum.jpeg",
             bobby: "Images/bobby.jpeg",
@@ -1281,13 +1450,17 @@
             neriah: "Images/neriah.jpeg",
             rebecca: "Images/rebecca.jpeg",
             anthony: "Images/anthony.jpg",
+            njoki: "Images/njoki.jpeg",
             vendor_dyluxe: "Logo/dy.png",
             vendor_shayes: "Logo/shayes.jpeg",
             vendor_rayne: "Logo/rayne.jpeg",
             vendor_djji: "Logo/djj.png",
             vendor_roots: "Logo/roots.png",
             vendor_allen: "Logo/allen.png",
-            vendor_share: "Logo/share.jpeg"
+            vendor_share: "Logo/share.jpeg",
+            vendor_freeforall: "Logo/freeforall.jpg",
+            vendor_zonta: "Logo/zonta.jpeg",
+            vendor_donnalee: "Images/donnalee.jpg"
         };
 
         const bios = {
@@ -1318,6 +1491,13 @@ He has opened for Ricky Dillard and Mariah the Scientist, and has also headlined
 
 Passionate about music and creative excellence, he is actively building his presence through consistent content creation and collaboration across multiple genres. With aspirations of becoming both a leading producer and an educator, Joel is focused on inspiring others while developing his craft at a high level.`,
 
+            isaiah: `Isaiah began drumming at 1 and started lessons at 3½. He trained with multiple schools and private lessons, performed publicly from age 4, and now plays across churches and venues. He aspires to become a Music Teacher and pursue a world‑renowned drumming career, while sharing his music to the world. He started Drum 101 beginner sessions for kids 4–12 which was launched in October 2025.
+
+Follow:
+- Instagram: @isaiahbedwardhamilton
+- Facebook: Isaiah Bedward
+- YouTube: Isaiah Bedward-Hamilton`,
+
             brandon: `Brandon Anderson is an upcoming musician rooted in Gospel and Jazz. His love for music is best expressed on the bass, guitar, and piano.`,
 
             bobby: `DJ Bobby Jay is a dynamic DJ ensuring the dance floor stays packed and the energy stays high all night long.`,
@@ -1326,7 +1506,11 @@ Passionate about music and creative excellence, he is actively building his pres
 
 She naturally takes the lead in group activities by encouraging others, listening to ideas, and organizing tasks with a positive, can-do attitude. Her calm, supportive leadership helps her team work together smoothly and feel confident. She dreams of becoming a pilot someday, to help connect people and places around the world.`,
 
-            wendy: `Wendy, whose name means “friend,” is a bubbly and energetic businesswoman currently serving as the CEO/Executive Director of Bon Ami Community Services. She previously served as a director at a shelter in the Peel Region for mothers and children who have fled gender-based violence, and she was a director at the Women’s Counsellor Centre, which supported women in the community who faced gender-based violence and needed counselling support. Wendy has worked in various capacities and positions for over 25 years, bringing dedication, compassion, and a strong commitment to empowering women, men, children, seniors, and families in need.`,
+            wendy: `Wendy is a dynamic and compassionate leader who serves as the Executive Director of Bon Ami Community Services, guiding a growing range of programs that empower, educate, and support women, men, children, seniors, and families through principled, community-rooted decision-making.
+
+Wendy’s dedication to advocacy and support extends to her past roles as a director at a Peel Region shelter for mothers and children fleeing gender-based violence and as a director at a Women’s Counsellor Centre, where she helped women access essential counseling and services.
+
+Over more than 25 years in various capacities, she has remained deeply committed to empowering women, men, children, seniors, and families in need.`,
 
             karen: `Karen Conceicao (Con-say-c-o) is a dedicated educator and advocate with a career spanning over 25 years as a Teaching Assistant for students with special needs with Peel District School Board. She also serves as a Bus Travel Assistant for Peel Board and has nearly a quarter-century of experience in hospitality as a waitress and bartender at Toronto Pearson Airport.
 
@@ -1338,6 +1522,8 @@ Today, Karen continues to advocate for survivors, mentor youth, and contribute t
 
             antonette: `For over 15 years, Antonette Whitley Scott has been the vibrant host behind countless events — from weddings, parties, and concerts to conferences and celebrations of every kind. A proud graduate of the University of the West Indies with a Master’s in Communication Studies and a Certificate in Events Management, Antonette brings both professionalism and personality to every stage she graces. Known for her pleasant personality, she delights in creating a stress-free and enjoyable atmosphere for everyone she encounters and at every hosting engagement. From start to finish, Antonette not only hosts but also customizes and executes each program with precision and heart, ensuring every event is truly unforgettable.`,
 
+            samantha: `Samantha Wallace is a trilingual regulatory professional fluent in English, French, and Spanish. She currently serves as a Bilingual Coordinator of Registration with the College of Registered Psychotherapists of Ontario, where she supports regulatory processes and public-facing communications. With experience across healthcare, nonprofit, and government sectors, she is known for her calm, thoughtful approach and her ability to bring clarity and ease to complex work.`,
+
             david: `Dr. David Green is a respected leader, educator, and community advocate whose career spans more than two decades of service and impact. With over thirteen years of experience in law enforcement and security administration, he has served with Metro SIS, Toronto Police Services, and the Airport Authority. He also held the role of Tribunal Adjudicator with the Ministry of Health, bringing fairness, integrity, and strong decisionmaking to the position. His nine years as a union representative further strengthened his skills in negotiation, advocacy, and conflict resolution.
 
 Dr. Green holds a degree in Law and Security Administration, a master’s in Christian education, and two PhDs, one in Theology and the other in Divinity. His academic achievements reflect his commitment to lifelong learning and his passion for educational leadership.
@@ -1345,6 +1531,14 @@ Dr. Green holds a degree in Law and Security Administration, a master’s in Chr
 For 24 years, Dr. Green has served as a Trustee with the Peel District School Board, becoming one of its longestserving and most influential members. During this time, he has championed equity, student success, and stronger communityschool partnerships. His leadership reached a new level during his fouryear term as Chair of the Board, where he guided policy development, strengthened governance, and worked collaboratively with stakeholders to ensure that all students had access to quality education and meaningful opportunities. His tenure as Chair demonstrated his ability to lead with vision, fairness, and unwavering commitment to public service.
 
 In addition to his educational leadership, Dr. Green serves as the Executive Director of Free For All Community Services, where he oversees programs that support youth, families, and marginalized communities. Throughout his career, he has been deeply engaged in addressing systemic antiBlack racism and advocating for equity across institutions. His passion, integrity, and determined work ethic have made him a trusted and influential voice within the community.`,
+
+            rod: `Councillor Rod Power, representing Wards 7 and 8 in Brampton, is widely recognized for his hands-on, community-first approach to leadership. With more than 20 years of experience in the private business sector, he brings a practical, solutions-oriented mindset to his role—bridging the gap between municipal leadership and the everyday needs of residents.
+
+Deeply rooted in grassroots work, Councillor Power has played a key role in supporting food security initiatives across Brampton, helping provide access to fresh and essential items through community markets that serve residents from all walks of life. In partnership with local organizations, he has also contributed to the success of breakfast programs in over 30 schools, ensuring that students begin their day with the nourishment they need to thrive.
+
+His commitment to community development extends further through his involvement in the growth and support of more than 20 nonprofit organizations, many of which focus on youth empowerment, addressing intimate partner violence (IPV), and strengthening social support systems. Councillor Power is also an active mentor to business owners and entrepreneurs, sharing his expertise to help foster a more resilient and inclusive local economy.
+
+Above all, he is known for his consistent presence, accessibility, and genuine kindness. Whether attending local events, supporting community initiatives, or connecting one-on-one with residents, Councillor Power remains deeply engaged with the people he serves—demonstrating a steadfast dedication to the well-being and vitality of the Brampton community he proudly calls home.`,
 
             rowena: `Rowena is a proud Bramptonian inspired by community and driven by a passion to change the culture of politics and building a more prosperous, livable and sustainable future. She was elected in 2018, and is the first Filipino elected to Council in Brampton. Santos is recognized as the 2023 Woman of Influence honouree by Municipal World, and a Municipal Trailblazer by the Federation of Canadian Municipalities. 
 
@@ -1380,6 +1574,18 @@ Prior to her policing career, she worked in an emergency department, an experien
             anthony: `Viibe Hair Studio (Vibe), a modern barbershop and hair studio located at 279 Queen St East in Brampton, ON, is renowned for its welcoming atmosphere and expert grooming. The studio specializes in fades, designs, and precision cuts for men, while offering hair services for all ages, including specialized kids’ cuts. 
 
 We are grateful to Anthony Joseph, owner of Viibe Salon, who generously sponsored our Bon Ami Community Services back-to-school backpack events in 2024 and 2025, mobilizing his full team of barbers and hairdressers to volunteer and cut hair for boys and girls in need. Viibe’s involvement has significantly enhanced local access to grooming services for underserved youth and reflects a strong commitment to wellness, confidence, and community support through practical and compassionate action.`,
+
+            njoki: `Njoki Owusu: A Lasting Legacy at Bon Ami Community Services
+
+Njoki Owusu joined the Bon Ami Events Team in 2013, embracing the vision to support women facing domestic violence, singlehood, marriage, and divorce. She believed deeply in the mission and stood beside Wendy in turning that vision into action. Through her compassionate counseling skills, Njoki became instrumental in laying a strong foundation for the organization’s work and in shaping a culture of care and resilience.
+
+Her dedication extended beyond her official role. Njoki volunteered her time to facilitate parenting groups, guided by a keen sense of identifying each child’s gifts, and contributed her energy to initiatives that made a tangible difference in families’ lives. Her spirit of service exemplified the best of Bon Ami Community Services: always ready to give, to listen, and to support those in need.
+
+Even after ten years of generous service, Njoki faced personal illness that eventually prevented her from continuing with Bon Ami Community Services after the organization rebranded. Yet, her commitment never waned. She remained willing to work behind the scenes, ensuring the organization’s ongoing success and impact.
+
+Her final message to the team reflected the hopeful, forward-looking ethos she lived by: “I know that Bon Ami Community Services will do exploits for women, children, men, seniors, and families in need.” It is a testament to her faith in the work and her generous, enduring spirit.
+
+We honour Njoki Owusu’s enduring legacy and celebrate the profound difference she made. Her contributions—especially her advocacy for women and families, her counseling leadership, and her quiet, steadfast support—will continue to inspire the Bon Ami Community Services family for years to come. We salute her memory, and we commit to carrying her legacy forward in service to those in need.`,
 
             vendor_donnalee: `I am the author of my book entitled Reaping the Harvest of God's Word, which is a collection of inspirational poems based upon biblical themes and it is designed to encourage, inspire and uplift the reader.`,
 
@@ -1418,7 +1624,13 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
 
             vendor_share: `Share the Bounty is a charitable organization, primarily operating in Canada (e.g., Mississauga), focused on reducing food insecurity by providing free, healthy meals to people in need. It acts as a community-driven initiative, collecting excess food and preparing meals while also distributing clothing and personal hygiene products to support those facing hardships.`,
 
-            vendor_zonta: `Information coming soon.`
+            vendor_heal: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_cityserve: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_folkstone: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_umbrella: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_safiya: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_soulwise: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_brianharris: `Partnering with Bon Ami Community Services to bring community support.`
         };
 
         // Scroll Animation Logic
@@ -1523,7 +1735,7 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
             if (participantImages[key]) {
                 avatar.style.backgroundImage = `url('${participantImages[key]}')`;
 
-                if (key.startsWith('vendor')) {
+                if (key.startsWith('vendor') && key !== 'vendor_donnalee') {
                     avatar.style.backgroundSize = 'contain';
                     avatar.style.backgroundColor = 'white';
                 } else {
@@ -1538,20 +1750,23 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
                 if (key === 'kayla_w') icon = 'fa-star';
                 if (key === 'shawn' || key === 'antonette' || key === 'wendy') icon = 'fa-microphone-alt';
                 if (key === 'kayla_m') icon = 'fa-music';
-                if (key === 'joel') icon = 'fa-guitar';
-                if (key === 'brandon') icon = 'fa-drum';
-                if (key === 'karen' || key === 'leonard') icon = 'fa-heart';
-                if (key === 'david' || key === 'rowena') icon = 'fa-award';
+                if (key === 'joel' || key === 'brandon' || key === 'isaiah') icon = 'fa-guitar';
+                if (key === 'karen' || key === 'leonard' || key === 'njoki') icon = 'fa-heart';
+                if (key === 'david' || key === 'rowena' || key === 'rod') icon = 'fa-award';
                 if (key === 'worship') icon = 'fa-child';
-                if (key === 'soprano' || key === 'neriah') icon = 'fa-palette';
+                if (key === 'soprano' || key === 'neriah' || key === 'vendor_safiya') icon = 'fa-palette';
                 if (key === 'rebecca') icon = 'fa-shield-alt';
-                if (key === 'charmaine') icon = 'fa-landmark';
+                if (key === 'charmaine' || key === 'vendor_cityserve') icon = 'fa-landmark';
                 if (key === 'anthony') icon = 'fa-cut';
 
                 // Vendor icons
                 if (key === 'vendor_donnalee') icon = 'fa-book';
                 if (key === 'vendor_scotia') icon = 'fa-home';
                 if (key === 'vendor_zonta') icon = 'fa-info-circle';
+                if (key === 'vendor_heal' || key === 'vendor_freeforall' || key === 'vendor_brianharris') icon = 'fa-hands-helping';
+                if (key === 'vendor_folkstone') icon = 'fa-school';
+                if (key === 'vendor_umbrella') icon = 'fa-umbrella';
+                if (key === 'vendor_soulwise') icon = 'fa-camera';
 
                 avatar.innerHTML = `<i class="fas ${icon}"></i>`;
             }
