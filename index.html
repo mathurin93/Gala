@@ -1170,7 +1170,7 @@
                             style="background-image: url('Images/Dr. Green picture .jpg')"></div>
                         <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Dr. David Green</h4>
-                            <p class="text-sm text-gray-500">ED Free For All Community Services & Former PDSB Trustee
+                            <p class="text-sm text-gray-500">ED Free For All Community Services & PDSB Trustee
                             </p>
                         </div>
                         <i class="fas fa-chevron-right text-gray-300"></i>
@@ -1485,9 +1485,10 @@
                     class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
                     <img src="Sponsors /tims.jpeg" alt="Tim Hortons" class="max-h-28 w-full object-contain" />
                 </div>
-                <div
-                    class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
-                    <h3 class="font-bold text-[var(--purple-dark)] text-xl text-center">Mane Authority Salon</h3>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40 interactive cursor-pointer"
+                    onclick="showProfile('Mane Authority Salon', 'Sponsor', 'vendor_mane')">
+                    <img src="Sponsors /mane.jpeg" alt="Mane Authority Salon"
+                        class="max-h-28 w-full object-contain rounded-md" />
                 </div>
                 <div
                     class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40">
@@ -1640,7 +1641,8 @@
             vendor_share: "Logo/share.jpeg",
             vendor_freeforall: "Logo/freeforall.jpg",
             vendor_zonta: "Logo/zonta.jpeg",
-            vendor_donnalee: "Images/donnalee.jpg"
+            vendor_donnalee: "Images/donnalee.jpg",
+            vendor_mane: "Sponsors /mane.jpeg"
         };
 
         const bios = {
@@ -1819,7 +1821,8 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
             vendor_umbrella: `Partnering with Bon Ami Community Services to bring community support.`,
             vendor_safiya: `Partnering with Bon Ami Community Services to bring community support.`,
             vendor_soulwise: `Partnering with Bon Ami Community Services to bring community support.`,
-            vendor_brianharris: `Partnering with Bon Ami Community Services to bring community support.`
+            vendor_brianharris: `Partnering with Bon Ami Community Services to bring community support.`,
+            vendor_mane: `Mane Authority Salon is a professional hair salon specializing in textured hair, including curls, coils, braids, and locs. We focus on healthy hair care, customized styling, and education, creating a welcoming space where every client feels confident, cared for, and empowered.`
         };
 
         // Scroll Animation Logic
@@ -1955,7 +1958,7 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
                 if (key === 'soprano' || key === 'neriah' || key === 'vendor_safiya') icon = 'fa-palette';
                 if (key === 'rebecca') icon = 'fa-shield-alt';
                 if (key === 'charmaine' || key === 'vendor_cityserve') icon = 'fa-landmark';
-                if (key === 'antony' || key === 'anthony') icon = 'fa-cut';
+                if (key === 'antony' || key === 'anthony' || key === 'vendor_mane') icon = 'fa-cut';
                 if (key === 'david_smart') icon = 'fa-car';
 
                 // Vendor icons
