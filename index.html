@@ -110,6 +110,40 @@
             /* Pulses 4 times then stops */
         }
 
+        /* Developer Link Animation */
+        @keyframes devPulse {
+
+            0%,
+            100% {
+                color: #c084fc;
+                transform: translateY(0);
+                text-shadow: none;
+            }
+
+            50% {
+                color: var(--gold-accent);
+                text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+                transform: translateY(-2px);
+            }
+        }
+
+        .dev-link-animate {
+            display: inline-flex;
+            align-items: center;
+            animation: devPulse 3s infinite ease-in-out;
+            border-bottom: 1px dashed currentColor;
+            padding-bottom: 1px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .dev-link-animate:hover {
+            color: var(--purple-mid);
+            animation: none;
+            transform: scale(1.05);
+            border-bottom-style: solid;
+        }
+
         @keyframes modalZoomIn {
             from {
                 opacity: 0;
@@ -943,19 +977,6 @@
                         love of singing at four years old...</p>
                 </div>
 
-                <div class="card p-6 interactive reveal-on-scroll" onclick="showProfile('DJ Bobby Jay', 'DJ', 'bobby')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Images/bobby.jpeg')">
-                        </div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">DJ Bobby Jay</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">DJ</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">DJ Bobby Jay is a dynamic DJ ensuring the dance floor
-                        stays packed and the energy stays high all night long...</p>
-                </div>
-
                 <div class="card p-6 interactive reveal-on-scroll"
                     onclick="showProfile('Neriah Williams', 'Young Entrepreneur', 'neriah')">
                     <div class="flex justify-between items-start mb-4">
@@ -1017,7 +1038,34 @@
                     <p class="text-gray-600 text-sm line-clamp-3">Inspector with Peel Regional Police, bringing over 26
                         years of dedicated service to the community and supporting vulnerable individuals...</p>
                 </div>
+            </div>
 
+            <!-- Meet the DJ Section -->
+            <div class="col-span-1 md:col-span-2 mt-12 mb-4 border-b border-gray-200 pb-2 reveal-on-scroll">
+                <h3 class="serif text-3xl text-[var(--purple-dark)] font-bold">Meet the DJ</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 interactive reveal-on-scroll" onclick="showProfile('DJ Bobby Jay', 'DJ', 'bobby')">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-20 h-20 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
+                            style="background-image: url('Images/bobby.jpeg')">
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-[var(--purple-dark)] mb-1">DJ Bobby Jay</h3>
+                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">DJ</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">DJ Bobby Jay is a dynamic DJ ensuring the dance floor
+                        stays packed and the energy stays high all night long...</p>
+                </div>
+            </div>
+
+            <!-- Meet Worship Unity Ministries Section -->
+            <div class="col-span-1 md:col-span-2 mt-12 mb-4 border-b border-gray-200 pb-2 reveal-on-scroll">
+                <h3 class="serif text-3xl text-[var(--purple-dark)] font-bold">Meet Worship Unity Ministries</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="card p-6 interactive reveal-on-scroll"
                     onclick="showProfile('Worship Unity Ministries', 'Dancers', 'worship')">
                     <div class="flex justify-between items-start mb-4">
@@ -1518,9 +1566,12 @@
                     Abuse"</p>
                 <p class="text-xs text-gray-500 uppercase tracking-[0.2em]">© 2026 Bon Ami Community Services</p>
                 <p class="text-[10px] text-gray-400 mt-2">Dream Convention Center, Brampton</p>
-                <p class="text-[10px] text-purple-400 mt-2 hover:text-[var(--gold-accent)] transition-colors">
-                    Developed by <a href="https://mattrobinsondeveloper.com/" target="_blank" rel="noopener noreferrer"
-                        class="underline">Matt Robinson</a>
+                <p class="text-[11px] text-gray-500 mt-4">
+                    Developed by
+                    <a href="https://mattrobinsondeveloper.com/" target="_blank" rel="noopener noreferrer"
+                        class="dev-link-animate ml-1">
+                        Matt Robinson <i class="fas fa-external-link-alt ml-1 text-[8px]"></i>
+                    </a>
                 </p>
             </div>
         </footer>
