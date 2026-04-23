@@ -90,6 +90,26 @@
             animation: pulseGlow 2.5s infinite ease-in-out;
         }
 
+        /* Attention Pulse for Mobile Menu */
+        @keyframes pulseAttention {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(59, 19, 84, 0.2);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(59, 19, 84, 0.8);
+            }
+        }
+
+        .attention-pulse {
+            animation: pulseAttention 2s ease-in-out 4;
+            /* Pulses 4 times then stops */
+        }
+
         @keyframes modalZoomIn {
             from {
                 opacity: 0;
@@ -374,15 +394,18 @@
             </div>
 
             <!-- Mobile Toggle -->
-            <button onclick="toggleMobileMenu()"
-                class="md:hidden text-white text-lg focus:outline-none h-9 w-9 flex-shrink-0 flex items-center justify-center bg-[var(--purple-mid)] hover:bg-[var(--purple-dark)] rounded shadow-md transition-colors mr-2">
-                <i id="menuIcon" class="fas fa-bars"></i>
+            <button onclick="toggleMobileMenu()" id="mobileMenuBtn"
+                class="md:hidden text-white focus:outline-none h-9 px-3 flex-shrink-0 flex items-center justify-center gap-2 bg-[var(--purple-mid)] hover:bg-[var(--purple-dark)] rounded shadow-md transition-all mr-2 attention-pulse">
+                <span class="text-[10px] font-bold tracking-widest uppercase">Menu</span>
+                <i id="menuIcon" class="fas fa-bars text-sm"></i>
             </button>
 
             <!-- Links (Spaced on desktop) -->
             <div class="hidden md:flex flex-1 justify-around w-full">
                 <button onclick="showPage('program')" id="btn-program"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest nav-active transition-all whitespace-nowrap">Schedule</button>
+                <button onclick="showPage('menu')" id="btn-menu"
+                    class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Menu</button>
                 <button onclick="showPage('speakers')" id="btn-speakers"
                     class="nav-btn px-2 py-2 uppercase text-[10px] md:text-xs tracking-widest text-gray-400 transition-all whitespace-nowrap">Talent
                     & Speakers</button>
@@ -413,6 +436,10 @@
                 <button onclick="showPage('program')" id="mobile-btn-program"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-[var(--purple-dark)] bg-purple-50 flex items-center gap-3 transition-all">
                     <i class="fas fa-clock w-5 text-[var(--gold-accent)]"></i> Event Schedule
+                </button>
+                <button onclick="showPage('menu')" id="mobile-btn-menu"
+                    class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
+                    <i class="fas fa-utensils w-5 text-[var(--gold-accent)]"></i> Gala Menu
                 </button>
                 <button onclick="showPage('speakers')" id="mobile-btn-speakers"
                     class="mobile-nav-btn text-left p-4 rounded-xl font-bold text-gray-600 flex items-center gap-3 transition-all">
@@ -458,7 +485,7 @@
                         <h3 class="font-bold text-[var(--purple-dark)]">Pre-show & Reception</h3>
                         <p class="text-sm text-gray-600">Hosted by Antonette Whitley-Scott (MC). Music by DJ Bobby Jay.
                         </p>
-                        <p class="text-xs text-gray-500 italic mt-1">Photo Booth (- 6pm – 8pm). Visit
+                        <p class="text-xs text-gray-500 italic mt-1">Photo Booth (6pm – 8pm). Visit
                             Vendors/Information Booths and Silent auction items (Hall A) Vendor Passport. Hors d’oeuvres
                             and drinks will be served.</p>
                     </div>
@@ -699,6 +726,118 @@
                         <p class="text-sm text-gray-600">DJ Bobby Jay</p>
                     </div>
                     <i class="fas fa-chevron-right text-[var(--purple-mid)] opacity-80 animate-bounce-x"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="hidden space-y-8 page-fade-in">
+            <div class="text-center mb-10 reveal-on-scroll">
+                <h2 class="serif text-4xl text-[var(--purple-dark)] font-bold">Gala Menu</h2>
+                <div class="w-20 h-1 bg-[var(--gold-accent)] mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-500 italic mt-2">A culinary experience to delight your palate.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Hors d'oeuvres -->
+                <div class="card p-8 border-t-4 border-[var(--gold-accent)] reveal-on-scroll">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <i class="fas fa-leaf text-2xl text-[var(--purple-mid)]"></i>
+                        <h3 class="serif text-2xl font-bold text-[var(--purple-dark)]">Hors d'oeuvres</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Vegetarian spring
+                            rolls</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Spanakopita</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Chicken Wings</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Fried Fish</li>
+                    </ul>
+                </div>
+
+                <!-- Main Course -->
+                <div class="card p-8 border-t-4 border-[var(--purple-mid)] reveal-on-scroll">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <i class="fas fa-utensils text-2xl text-[var(--purple-mid)]"></i>
+                        <h3 class="serif text-2xl font-bold text-[var(--purple-dark)]">Main Course</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Mixed Vegetables
+                        </li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Penne Pasta in
+                            Sauce</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Jerk Chicken</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Grilled Chicken in
+                            Mushroom Sauce</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Chicken Chow Mein
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Accompaniments -->
+                <div class="card p-8 border-t-4 border-[var(--purple-mid)] reveal-on-scroll">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <i class="fas fa-bread-slice text-2xl text-[var(--purple-mid)]"></i>
+                        <h3 class="serif text-2xl font-bold text-[var(--purple-dark)]">Accompaniments</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Fresh Bread with
+                            butter</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Vegetable Fried
+                            Rice</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Garden Salad</li>
+                        <li class="flex items-start gap-2"><i
+                                class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Potato Salad</li>
+                    </ul>
+                </div>
+
+                <!-- Desserts & Drinks -->
+                <div class="card p-8 border-t-4 border-[var(--gold-accent)] reveal-on-scroll flex flex-col gap-6">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4 border-b border-gray-100 pb-4">
+                            <i class="fas fa-ice-cream text-2xl text-[var(--purple-mid)]"></i>
+                            <h3 class="serif text-2xl font-bold text-[var(--purple-dark)]">Desserts</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Mango Ice Cream
+                            </li>
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Fresh Tropical
+                                Fruits</li>
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Assorted Cakes
+                                & Pastries</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="flex items-center gap-3 mb-4 border-b border-gray-100 pb-4">
+                            <i class="fas fa-glass-cheers text-2xl text-[var(--purple-mid)]"></i>
+                            <h3 class="serif text-2xl font-bold text-[var(--purple-dark)]">Beverages</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Assorted Juice
+                                & Soft Drinks</li>
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Tea / Coffee /
+                                Water</li>
+                            <li class="flex items-start gap-2"><i
+                                    class="fas fa-circle text-[var(--gold-accent)] text-[8px] mt-2"></i> Cash Bar</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -988,13 +1127,15 @@
                         </div>
                         <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
-                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('Marsha Forbes', 'Honoree', 'marsha')">
                         <div class="w-12 h-12 rounded-full flex-shrink-0 border border-purple-100 bg-cover bg-center"
                             style="background-image: url('Images/marsha.jpg')"></div>
-                        <div>
+                        <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Marsha Forbes</h4>
                             <p class="text-sm text-gray-500">Principal of Folkstone Public School</p>
                         </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
                     <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
                         onclick="showProfile('Hon. Charmaine Williams', 'Honoree', 'charmaine')">
@@ -1007,28 +1148,32 @@
                         <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
                     <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
-                        onclick="showProfile('Anthony Joseph', 'Viibe Hair Studio', 'anthony')">
+                        onclick="showProfile('Antony Joseph', 'Viibe Hair Studio', 'antony')">
                         <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100 bg-cover bg-center"
-                            style="background-image: url('Images/anthony.jpg')"><i class="fas fa-cut text-xl"></i></div>
+                            style="background-image: url('Images/antony.jpeg')"></div>
                         <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Antony Joseph</h4>
                             <p class="text-sm text-gray-500">Viibe Barber Shop</p>
                         </div>
                         <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
-                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
+                    <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors interactive cursor-pointer"
+                        onclick="showProfile('David Smart', 'Royal Windsor Collision', 'david_smart')">
                         <div
                             class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
-                            <i class="fas fa-award text-xl"></i></div>
-                        <div>
+                            <i class="fas fa-car text-xl"></i>
+                        </div>
+                        <div class="flex-1">
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">David Smart</h4>
                             <p class="text-sm text-gray-500">Royal Windsor Collision</p>
                         </div>
+                        <i class="fas fa-chevron-right text-gray-300"></i>
                     </div>
                     <div class="p-6 flex items-center gap-5 hover:bg-gray-50 transition-colors">
                         <div
                             class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center flex-shrink-0 text-[var(--gold-accent)] border border-purple-100">
-                            <i class="fas fa-handshake text-xl"></i></div>
+                            <i class="fas fa-handshake text-xl"></i>
+                        </div>
                         <div>
                             <h4 class="text-lg font-bold text-[var(--purple-dark)]">Partners and Agencies</h4>
                             <p class="text-sm text-gray-500">Community Support</p>
@@ -1268,20 +1413,6 @@
                     <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Community
                         Partner</p>
                 </div>
-
-                <div class="card p-6 interactive reveal-on-scroll"
-                    onclick="showProfile('Donnalee Jemmison', 'Author', 'vendor_donnalee')">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-[var(--purple-mid)] rounded-full flex-shrink-0 border-2 border-[var(--gold-accent)] shadow-md bg-cover bg-center"
-                            style="background-image: url('Images/donnalee.jpg')"></div>
-                        <i class="fas fa-chevron-right text-gray-300 mt-2"></i>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold text-[var(--purple-dark)] mb-1">Donnalee Jemmison</h3>
-                    <p class="text-xs font-bold tracking-widest text-[var(--gold-accent)] uppercase mb-3">Author</p>
-                    <p class="text-gray-600 text-sm line-clamp-3">Author of 'Reaping the Harvest of God's Word', a
-                        collection of inspirational poems based upon biblical themes designed to encourage, inspire and
-                        uplift...</p>
-                </div>
             </div>
         </section>
 
@@ -1321,6 +1452,11 @@
                 <div
                     class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40 md:col-start-2">
                     <img src="Sponsors /footerlocker.jpeg" alt="Foot Locker" class="max-h-28 w-full object-contain" />
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow h-40 md:col-start-3 interactive cursor-pointer"
+                    onclick="showProfile('Donnalee Jemmison', 'Author', 'vendor_donnalee')">
+                    <img src="Images/donnalee.jpg" alt="Donnalee Jemmison"
+                        class="max-h-28 w-full object-contain rounded-md" />
                 </div>
             </div>
         </section>
@@ -1442,7 +1578,7 @@
             marsha: "Images/marsha.jpg",
             neriah: "Images/neriah.jpeg",
             rebecca: "Images/rebecca.jpeg",
-            anthony: "Images/anthony.jpg",
+            antony: "Images/antony.jpeg",
             njoki: "Images/njoki.jpeg",
             vendor_dyluxe: "Logo/dy.png",
             vendor_shayes: "Logo/shayes.jpeg",
@@ -1560,13 +1696,22 @@ Rebecca further demonstrates her commitment to victim advocacy through her role 
 
 Prior to her policing career, she worked in an emergency department, an experience that continues to inform her compassionate, empathetic approach to leadership. Driven by a deep commitment to service, Rebecca remains focused on making a meaningful difference in the lives of those who need it most.”`,
 
-            soprano: `Darling Art by Soprano is a creative brand founded by a talented 9-year-old artist who has been drawing and painting since the age of 3. With a passion for self-expression and imagination, Soprano specializes in beautiful canvas art featuring nature scenes and uplifting daily affirmations. In addition to painting, she also creates handmade bracelets, each piece crafted with care and creativity. Darling Art celebrates positivity, originality, and the joy of art through a young artist’s inspiring perspective.`,
+            soprano: `Darling Art by Soprano is a creative brand founded by a talented 9-year-old artist who has been drawing and painting since the age of 3. With a passion for self-expression and imagination, Soprano specializes in beautiful canvas art featuring nature scenes and uplifting daily affirmations. In addition to painting, she also creates handmade bracelets, piece crafted with care and creativity. Darling Art celebrates positivity, originality, and the joy of art through a young artist’s inspiring perspective.`,
 
             worship: `For over 20 years, Worship Unity Ministries has traveled across North America, sharing messages of hope, love, and spiritual reverence through movement. We specialize in African and liturgical-inspired dance, blending rhythm, grace, and devotion to uplift all people. Each step and gesture expresses our deepest faith and gratitude, inviting others to experience the transformative power of worship and community. The dynamic dance group performs as a sacred offering to the divine, in whatever form that expression takes for anyone present.`,
 
-            anthony: `Viibe Hair Studio (Vibe), a modern barbershop and hair studio located at 279 Queen St East in Brampton, ON, is renowned for its welcoming atmosphere and expert grooming. The studio specializes in fades, designs, and precision cuts for men, while offering hair services for all ages, including specialized kids’ cuts. 
+            antony: `Viibe Hair Studio (Vibe), a modern barbershop and hair studio located at 279 Queen St East in Brampton, ON, is renowned for welcoming atmosphere and expert grooming. The studio specializes in fades, designs, and precision cuts for men, while offering hair services for all ages, including specialized kids’ cuts. 
 
-We are grateful to Anthony Joseph, owner of Viibe Salon, who generously sponsored our Bon Ami Community Services back-to-school backpack events in 2024 and 2025, mobilizing his full team of barbers and hairdressers to volunteer and cut hair for boys and girls in need. Viibe’s involvement has significantly enhanced local access to grooming services for underserved youth and reflects a strong commitment to wellness, confidence, and community support through practical and compassionate action.`,
+We are grateful to Antony Joseph, owner of Viibe Salon, who generously sponsored our Bon Ami Community Services back-to-school backpack events in 2024 and 2025, mobilizing his full team of barbers and hairdressers to volunteer and cut hair for boys and girls in need. Viibe’s involvement has significantly enhanced local access to grooming services for underserved youth and reflects a strong commitment to wellness, confidence, and community support through practical and compassionate action.`,
+
+            david_smart: `David Smart is the owner of 
+Royal Windsor Collision Centre is an auto repair service located in Oakville, Canada. The center specializes in cosmetic repairs and has received mixed reviews from customers. While some appreciate the friendly service and effective repairs that make cars look brand new, others report negative experiences with customer service and unauthorized work. Dave and his team sponsored Bon Ami Community Services at their first back to school back pack Bar BQ event in 2024 and 2025. He purchased the majority of the food and drinks for over 150 children and their families. David and his wife, Marva, also volunteered their time, and both events show their support to the community. 
+
+Bon Ami is grateful for their continued support and partnership.`,
+
+            marsha: `Marsha Forbes is a Principal in the Peel District School Board. She holds an M.Ed in Educational Leadership with a focus on Social Justice, and was awarded the Canadian Race Relations Federation Award of Excellence – Education, for excellence and innovation in race relations practice in Canada. 
+            
+As an educator, she served as the Anti-Racism and Equity Chair for the Peel Elementary Teacher’s Federation, and is currently the Vice President of the Peel Principal and Vice Principal Association. From as early as her University years, Marsha has been serving the community, working for the United Achiever’s Community Services. Supporting communities became central to Marsha’s work as an educator, especially supporting the Black Community. She has sat on the Board of Directors with the Peel Learning Foundation and has created initiatives such as Black Community Connects, and an online group supporting Black parents in which information, resources and opportunities are shared. As an administrator, she supports colleagues within her family of schools as well as parents, students and our wider Black community. Marsha seeks to network, connect, innovate and create opportunities to see children, youth and families succeed.`,
 
             njoki: `Njoki Owusu: A Lasting Legacy at Bon Ami Community Services
 
@@ -1656,7 +1801,14 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
         function toggleMobileMenu() {
             const overlay = document.getElementById('mobileMenuOverlay');
             const icon = document.getElementById('menuIcon');
+            const btn = document.getElementById('mobileMenuBtn');
+
+            // Remove the attention pulse once the user discovers the menu
+            if (btn) btn.classList.remove('attention-pulse');
+
+            // Toggle the CSS active class instead of hidden/flex
             overlay.classList.toggle('active');
+
             if (overlay.classList.contains('active')) {
                 icon.classList.replace('fa-bars', 'fa-times');
             } else {
@@ -1682,7 +1834,9 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
 
         function showPage(pageId) {
             const menuOverlay = document.getElementById('mobileMenuOverlay');
-            if (menuOverlay && menuOverlay.classList.contains('active')) {
+
+            // Check for 'active' class instead of 'hidden' to properly close menu
+            if (menuOverlay && menuOverlay.classList.contains('active') && window.innerWidth < 768) {
                 toggleMobileMenu();
             }
 
@@ -1750,7 +1904,8 @@ Our motto is "Sophisticated Statements," and we prioritize originality in everyt
                 if (key === 'soprano' || key === 'neriah' || key === 'vendor_safiya') icon = 'fa-palette';
                 if (key === 'rebecca') icon = 'fa-shield-alt';
                 if (key === 'charmaine' || key === 'vendor_cityserve') icon = 'fa-landmark';
-                if (key === 'anthony') icon = 'fa-cut';
+                if (key === 'antony' || key === 'anthony') icon = 'fa-cut';
+                if (key === 'david_smart') icon = 'fa-car';
 
                 // Vendor icons
                 if (key === 'vendor_donnalee') icon = 'fa-book';
